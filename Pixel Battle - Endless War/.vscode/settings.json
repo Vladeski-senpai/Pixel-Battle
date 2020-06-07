@@ -1,0 +1,25 @@
+{
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        // MY HIDDEN FILES/FOLDERS
+        "**/*.meta": true,
+        "**/*.sln": true,
+        "**/.vs": true,
+        "**/Logs": true,
+        "**/Library": true,
+        "**/obj": true,
+        "**/Packages": true,
+        "**/Temp": true,
+        "**/ProjectSettings": true,
+        "**/Prefabs": true,
+        "**/_Scenes": true
+    },
+
+    "editor.tokenColorCustomizations": {
+        "comments": "#229977"
+    }
+}

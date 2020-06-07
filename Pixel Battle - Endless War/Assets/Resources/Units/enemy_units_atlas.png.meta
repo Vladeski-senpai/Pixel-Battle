@@ -1,0 +1,2279 @@
+fileFormatVersion: 2
+guid: f8d00a6aaef4710408b5f73446e59c80
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5423833789241823029
+    second: goblin_head
+  - first:
+      213: -6623924839428156325
+    second: goblin_body
+  - first:
+      213: -4877582022531483990
+    second: goblin_legs
+  - first:
+      213: 4676454375467914380
+    second: goblin_shield
+  - first:
+      213: -4535509940350058017
+    second: goblin_sword
+  - first:
+      213: 4538649967587598541
+    second: goblin_archer_head
+  - first:
+      213: -1573978519327338545
+    second: goblin_archer_bow
+  - first:
+      213: -4673342579575764029
+    second: goblin_archer_arm
+  - first:
+      213: 1003377378532661571
+    second: goblin_archer_arrow
+  - first:
+      213: -7672691665240288663
+    second: skeleton_head
+  - first:
+      213: -3341065198207617959
+    second: skeleton_body
+  - first:
+      213: -1361227011170271626
+    second: skeleton_legs
+  - first:
+      213: 2694069515149772133
+    second: skeleton_shield
+  - first:
+      213: 6980892612299714251
+    second: skeleton_sword
+  - first:
+      213: 8649244201076852296
+    second: skeleton_archer_head
+  - first:
+      213: -5163770185549531054
+    second: skeleton_archer_bow
+  - first:
+      213: -1307837032283856266
+    second: skeleton_archer_arm
+  - first:
+      213: -905892287976861525
+    second: skeleton_archer_arrow
+  - first:
+      213: 2611083822953406453
+    second: spider_body
+  - first:
+      213: -8582240934265608265
+    second: spider_legs
+  - first:
+      213: 3087170379095998806
+    second: spider_shooting_body
+  - first:
+      213: 3464050787670411808
+    second: spider_shooting_legs
+  - first:
+      213: 8929495566634665977
+    second: spider_shooting_web
+  - first:
+      213: -7471244052060653101
+    second: giant_spider_head
+  - first:
+      213: -5928003186992238267
+    second: giant_spider_body
+  - first:
+      213: 8113661533924642819
+    second: giant_spider_leg_1
+  - first:
+      213: 7801640593333521474
+    second: giant_spider_leg_2
+  - first:
+      213: -7368380364111233885
+    second: giant_spider_leg_3
+  - first:
+      213: -8154921248144292401
+    second: giant_spider_leg_4
+  - first:
+      213: 8690055425517715396
+    second: snowguy_head
+  - first:
+      213: 6678377852099578753
+    second: snowguy_body
+  - first:
+      213: -5423383347683019051
+    second: snowguy_legs
+  - first:
+      213: -6846534924129555145
+    second: snowguy_spear
+  - first:
+      213: 7128902922197956822
+    second: snowguy_crossbow
+  - first:
+      213: 6251715957350527562
+    second: mutant_head
+  - first:
+      213: -8889656512376122575
+    second: mutant_body
+  - first:
+      213: 1495113922442577808
+    second: mutant_legs
+  - first:
+      213: 5663886510359789966
+    second: mutant_weapon
+  - first:
+      213: -5981719080859295669
+    second: mutant_laser_1
+  - first:
+      213: -1435397478364312766
+    second: mutant_laser_2
+  - first:
+      213: 3678444072563915978
+    second: bat_body_1
+  - first:
+      213: -4438797232137899979
+    second: bat_body_2
+  - first:
+      213: 4944416122549413835
+    second: bat_body_3
+  - first:
+      213: -1568942512097530862
+    second: bat_head
+  - first:
+      213: -5082398156020226736
+    second: ogre_head
+  - first:
+      213: 172498103613983851
+    second: ogre_body
+  - first:
+      213: -1827786936585631200
+    second: ogre_legs
+  - first:
+      213: 2916639368705221564
+    second: ogre_arm
+  - first:
+      213: 221132210579749904
+    second: ogre_club
+  - first:
+      213: 3838799176183094778
+    second: troll_head
+  - first:
+      213: -682506950030515336
+    second: troll_body
+  - first:
+      213: -2390113456955634907
+    second: troll_legs
+  - first:
+      213: -4911915401938138920
+    second: troll_axe
+  - first:
+      213: 3712905356452929310
+    second: viper_body_1
+  - first:
+      213: 4839997491048702465
+    second: viper_body_2
+  - first:
+      213: -6599982543702863896
+    second: viper_body_3
+  - first:
+      213: 7549492623391194865
+    second: viper_tail
+  - first:
+      213: 9197209908394188292
+    second: viper_spear
+  - first:
+      213: -5217122775084633172
+    second: minotaur_head
+  - first:
+      213: 6146752766649781619
+    second: minotaur_body
+  - first:
+      213: -6982852074925171153
+    second: minotaur_leg
+  - first:
+      213: -4839391188987302679
+    second: minotaur_left_arm
+  - first:
+      213: -5992260886872652049
+    second: minotaur_right_arm
+  - first:
+      213: 8298898540813217229
+    second: minotaur_axe
+  - first:
+      213: 7672645228887458617
+    second: zombie_head
+  - first:
+      213: -8561634371509020033
+    second: zombie_body
+  - first:
+      213: -8534723184539451624
+    second: zombie_legs
+  - first:
+      213: 3664368630890404853
+    second: zombie_mouth_1
+  - first:
+      213: -5092103226530041443
+    second: zombie_mouth_2
+  - first:
+      213: -1585050590899973484
+    second: zombie_arm
+  - first:
+      213: 3874920941987121846
+    second: ogre_leg_1
+  - first:
+      213: 7185461263850614227
+    second: ogre_leg_2
+  - first:
+      213: -1827786936585631200
+    second: snowguy_archer_arrow
+  - first:
+      213: 6201924153747690813
+    second: frozen_zombie_head
+  - first:
+      213: 5733399666197589787
+    second: frozen_zombie_body
+  - first:
+      213: 9192631814369830685
+    second: frozen_zombie_legs
+  - first:
+      213: 1086272910173476391
+    second: frozen_zombie_arm
+  - first:
+      213: 2371216392838383380
+    second: slime_1
+  - first:
+      213: 7244916199156741943
+    second: slime_2
+  - first:
+      213: 8941076746827226070
+    second: slime_3
+  - first:
+      213: 2693205647488397729
+    second: slime_4
+  - first:
+      213: 3172724282272798986
+    second: trent_body_1
+  - first:
+      213: 5767419761461330153
+    second: trent_body_2
+  - first:
+      213: -6604228199528071024
+    second: trent_arm_1
+  - first:
+      213: 8711312847194403698
+    second: trent_arm_2
+  - first:
+      213: -4066414037292784632
+    second: snake_head
+  - first:
+      213: 8877899214290574729
+    second: snake_body
+  - first:
+      213: 8644061504876085263
+    second: snake_tail
+  - first:
+      213: 6273615805779845455
+    second: yeti_body
+  - first:
+      213: 1466417545952401042
+    second: yeti_head
+  - first:
+      213: 8188737042079797505
+    second: yeti_arm
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 128
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 1
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: goblin_head
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc0fa77c7ebaab4b0800000000000000
+      internalID: -5423833789241823029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_body
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 125
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b549ffe14771314a0800000000000000
+      internalID: -6623924839428156325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_legs
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 122
+        width: 4
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa6fd283ef85f4cb0800000000000000
+      internalID: -4877582022531483990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_shield
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 118
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8416124a7a16e040800000000000000
+      internalID: 4676454375467914380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_sword
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 114
+        width: 7
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd18e2a4db1ae01c0800000000000000
+      internalID: -4535509940350058017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_archer_head
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 121
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc0a5e549168cfe30800000000000000
+      internalID: 4538649967587598541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_archer_bow
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 121
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf066f30ea182ae0800000000000000
+      internalID: -1573978519327338545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_archer_arm
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 118
+        width: 9
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cbcdae2fa3f42fb0800000000000000
+      internalID: -4673342579575764029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_archer_arrow
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 119
+        width: 8
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3491a1fd866bced00800000000000000
+      internalID: 1003377378532661571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_head
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 122
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9629046059f158590800000000000000
+      internalID: -7672691665240288663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_body
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 125
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9543a6967e622a1d0800000000000000
+      internalID: -3341065198207617959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_legs
+      rect:
+        serializedVersion: 2
+        x: 40
+        y: 122
+        width: 4
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e7784de33fb1de0800000000000000
+      internalID: -1361227011170271626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_shield
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 118
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56506b243f1436520800000000000000
+      internalID: 2694069515149772133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_sword
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 118
+        width: 7
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcee54338dc11e060800000000000000
+      internalID: 6980892612299714251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_archer_head
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 121
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8460bc476c9480870800000000000000
+      internalID: 8649244201076852296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_archer_bow
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 121
+        width: 4
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2583194006a9658b0800000000000000
+      internalID: -5163770185549531054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_archer_arm
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 118
+        width: 8
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 672ae9af521a9dde0800000000000000
+      internalID: -1307837032283856266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: skeleton_archer_arrow
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 119
+        width: 7
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba09f5283cf9d63f0800000000000000
+      internalID: -905892287976861525
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spider_body
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 107
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ff18e127ee6c3420800000000000000
+      internalID: 2611083822953406453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spider_legs
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 111
+        width: 8
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b728484751c5e880800000000000000
+      internalID: -8582240934265608265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spider_shooting_body
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 107
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651002f6a15d7da20800000000000000
+      internalID: 3087170379095998806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spider_shooting_legs
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 111
+        width: 8
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ac10b86d7c21030800000000000000
+      internalID: 3464050787670411808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spider_shooting_web
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 107
+        width: 11
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f74fa848e0fbeb70800000000000000
+      internalID: 8929495566634665977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: giant_spider_head
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 96
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d9bca67e1fc05890800000000000000
+      internalID: -7471244052060653101
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: giant_spider_body
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 93
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 541b1f362808bbda0800000000000000
+      internalID: -5928003186992238267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: giant_spider_leg_1
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 96
+        width: 3
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30054555d24899070800000000000000
+      internalID: 8113661533924642819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: giant_spider_leg_2
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 96
+        width: 3
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24c89e6e8cef44c60800000000000000
+      internalID: 7801640593333521474
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: giant_spider_leg_3
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 99
+        width: 3
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3acbf2329114eb990800000000000000
+      internalID: -7368380364111233885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: giant_spider_leg_4
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 100
+        width: 1
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc50319d456e3de80800000000000000
+      internalID: -8154921248144292401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowguy_head
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 96
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cf707c1e57499870800000000000000
+      internalID: 8690055425517715396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowguy_body
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 101
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b4b3ed54d5eac50800000000000000
+      internalID: 6678377852099578753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowguy_legs
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 98
+        width: 4
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d6b59064954cb4b0800000000000000
+      internalID: -5423383347683019051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowguy_spear
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 93
+        width: 1
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73da3f0d2c83cf0a0800000000000000
+      internalID: -6846534924129555145
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowguy_crossbow
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 90
+        width: 13
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d87adbef63fee260800000000000000
+      internalID: 7128902922197956822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mutant_head
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 97
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a42f48a4a8e82c650800000000000000
+      internalID: 6251715957350527562
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mutant_body
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 101
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 133559c508891a480800000000000000
+      internalID: -8889656512376122575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mutant_legs
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 98
+        width: 4
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0974ee5e036bfb410800000000000000
+      internalID: 1495113922442577808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mutant_weapon
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 101
+        width: 9
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e814f1ac5ca2a9e40800000000000000
+      internalID: 5663886510359789966
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mutant_laser_1
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 94
+        width: 6
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b40a43f303aacfca0800000000000000
+      internalID: -5981719080859295669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mutant_laser_2
+      rect:
+        serializedVersion: 2
+        x: 102
+        y: 93
+        width: 6
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24b8a963991741ce0800000000000000
+      internalID: -1435397478364312766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_body_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 94
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acc305f05657c0330800000000000000
+      internalID: 3678444072563915978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_body_2
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 94
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 530fe646f693662c0800000000000000
+      internalID: -4438797232137899979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_body_3
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 94
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc7a54e44481e9440800000000000000
+      internalID: 4944416122549413835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bat_head
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 99
+        width: 5
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21cea6d091ff93ae0800000000000000
+      internalID: -1568942512097530862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogre_head
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 105
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05560570ec1b779b0800000000000000
+      internalID: -5082398156020226736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogre_body
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 105
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6c075e7c16d46200800000000000000
+      internalID: 172498103613983851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogre_arm
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 106
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb328958d0cf97820800000000000000
+      internalID: 2916639368705221564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogre_club
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 107
+        width: 17
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01cb00ce29e911300800000000000000
+      internalID: 221132210579749904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: troll_head
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 107
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: afd947c0387264530800000000000000
+      internalID: 3838799176183094778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: troll_body
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 113
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87322b68b8f3786f0800000000000000
+      internalID: -682506950030515336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: troll_legs
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 110
+        width: 4
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52b4749697c94ded0800000000000000
+      internalID: -2390113456955634907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: troll_axe
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 110
+        width: 3
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d805b467fe55dbb0800000000000000
+      internalID: -4911915401938138920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viper_body_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 117
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1f9508ffb3e68330800000000000000
+      internalID: 3712905356452929310
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viper_body_2
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 117
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1026dbf13102b2340800000000000000
+      internalID: 4839997491048702465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viper_body_3
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 117
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8efcfce38d62864a0800000000000000
+      internalID: -6599982543702863896
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viper_tail
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 123
+        width: 7
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fef9a3ca8f25c860800000000000000
+      internalID: 7549492623391194865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: viper_spear
+      rect:
+        serializedVersion: 2
+        x: 110
+        y: 125
+        width: 15
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40ed98acead03af70800000000000000
+      internalID: 9197209908394188292
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minotaur_head
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 84
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca3fa714a7e0997b0800000000000000
+      internalID: -5217122775084633172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minotaur_body
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 82
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37d4f4a0317ad4550800000000000000
+      internalID: 6146752766649781619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minotaur_leg
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 88
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e5cfad80de71f90800000000000000
+      internalID: -6982852074925171153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minotaur_left_arm
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 83
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9eca1439a5707dcb0800000000000000
+      internalID: -4839391188987302679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minotaur_right_arm
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 82
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe60d74c87637dca0800000000000000
+      internalID: -5992260886872652049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: minotaur_axe
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 85
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcded20e04c9b2370800000000000000
+      internalID: 8298898540813217229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie_head
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 120
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 933ce6b2f26ba7a60800000000000000
+      internalID: 7672645228887458617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie_body
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 125
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7a1e6d86e6fe2980800000000000000
+      internalID: -8561634371509020033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie_legs
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 122
+        width: 4
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81f3c398b729e8980800000000000000
+      internalID: -8534723184539451624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie_mouth_1
+      rect:
+        serializedVersion: 2
+        x: 59
+        y: 117
+        width: 3
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fb9e4aead37ad230800000000000000
+      internalID: 3664368630890404853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie_mouth_2
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 117
+        width: 3
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d917e0738173559b0800000000000000
+      internalID: -5092103226530041443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: zombie_arm
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 118
+        width: 3
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4925262b2e4c00ae0800000000000000
+      internalID: -1585050590899973484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogre_leg_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 111
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ba4dd7011c76c530800000000000000
+      internalID: 3874920941987121846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ogre_leg_2
+      rect:
+        serializedVersion: 2
+        x: 79
+        y: 111
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dd252303f2e7b360800000000000000
+      internalID: 7185461263850614227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snowguy_archer_arrow
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 93
+        width: 5
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02ac6b7177562a6e0800000000000000
+      internalID: -1827786936585631200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frozen_zombie_head
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 84
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d35db0c9829a11650800000000000000
+      internalID: 6201924153747690813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frozen_zombie_body
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 90
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1fec0b9e90219f40800000000000000
+      internalID: 5733399666197589787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frozen_zombie_legs
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 87
+        width: 4
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d17e7763ee9c29f70800000000000000
+      internalID: 9192631814369830685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: frozen_zombie_arm
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 85
+        width: 3
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 726150cd477331f00800000000000000
+      internalID: 1086272910173476391
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41707bcfeb048e020800000000000000
+      internalID: 2371216392838383380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime_2
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 0
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 737f53ed5ec1b8460800000000000000
+      internalID: 7244916199156741943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime_3
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 0
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6db542cede5151c70800000000000000
+      internalID: 8941076746827226070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime_4
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 0
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a13f956440306520800000000000000
+      internalID: 2693205647488397729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trent_body_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 72
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a095027cce7c70c20800000000000000
+      internalID: 3172724282272798986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trent_body_2
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 72
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e0887847bdf90050800000000000000
+      internalID: 5767419761461330153
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trent_arm_1
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 78
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 090038771711954a0800000000000000
+      internalID: -6604228199528071024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: trent_arm_2
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 74
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 273b15841ecc4e870800000000000000
+      internalID: 8711312847194403698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snake_head
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 77
+        width: 5
+        height: 4
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80460855af13197c0800000000000000
+      internalID: -4066414037292784632
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snake_body
+      rect:
+        serializedVersion: 2
+        x: 27
+        y: 73
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98d528b5c42a43b70800000000000000
+      internalID: 8877899214290574729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snake_tail
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 75
+        width: 4
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0084c6f320e5f770800000000000000
+      internalID: 8644061504876085263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yeti_body
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 71
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f41a8c8165c501750800000000000000
+      internalID: 6273615805779845455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yeti_head
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 76
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29694e61df2c95410800000000000000
+      internalID: 1466417545952401042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yeti_arm
+      rect:
+        serializedVersion: 2
+        x: 63
+        y: 73
+        width: 5
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 101df3834fc34a170800000000000000
+      internalID: 8188737042079797505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
