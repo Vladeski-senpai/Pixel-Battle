@@ -60,8 +60,6 @@ public class DefaultGameController : MonoBehaviour
         // Еслю звук включён
         if (GlobalData.GetInt("Sound") != 0)
             audio_s = GetComponent<AudioSource>();
-
-        Application.targetFrameRate = 60; // Устанавливаем максимальный фпс
     }
 
     private void Update()

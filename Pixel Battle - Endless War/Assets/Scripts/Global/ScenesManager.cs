@@ -15,6 +15,8 @@ public class ScenesManager : MonoBehaviour
     private void Awake()
     {
         GlobalTranslateSystem.language = GlobalData.GetString("Language");
+
+        Application.targetFrameRate = 60; // Устанавливаем максимальный фпс
     }
 
     // Start is called before the first frame update
