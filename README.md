@@ -1,2 +1,2 @@
 # Pixel-Battle
- 2d RPG game
+ A 2d RPG game
