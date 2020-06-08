@@ -33,14 +33,36 @@
         GlobalData.SetInt("StatsUnitsSummoned", stats + UnitsSummoned);
     }
 
+    // Добавляем золото, которое запишем в конце раунда
     public static void AddGold(int amount)
     {
         GoldEarned += amount;
     }
 
+    // Добавляем гемы, которые запишем в конце раунда
     public static void AddGems(int amount)
     {
         GemsEarned += amount;
+    }
+
+    // Добавляем золото мгновенно
+    public static void AddInstantGold(int value)
+    {
+        int current_gold;
+        current_gold = GlobalData.GetInt("Gold"); // Берём старое золото
+        current_gold += value; // Прибавляем новое золото
+        GlobalData.SetInt("Gold", current_gold); // Записываем новое золото
+        SetStats("StatsGoldEarned", value); // Добавляем золото в статистику
+    }
+
+    // Добавляем гемы мгновенно
+    public static void AddInstantGems(int value)
+    {
+        int current_gems;
+        current_gems = GlobalData.GetInt("Gems"); // Берём старое золото
+        current_gems += value; // Прибавляем новое золото
+        GlobalData.SetInt("Gems", current_gems); // Записываем новое золото
+        SetStats("StatsGemsCollected", value); // Добавляем золото в статистику
     }
 
     /// <summary>

@@ -292,7 +292,7 @@ GameObject:
   m_Component:
   - component: {fileID: 106344393}
   m_Layer: 0
-  m_Name: _____________________________  CANVAS
+  m_Name: _______________________  CANVAS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1720,7 +1720,7 @@ GameObject:
   - component: {fileID: 1833512027}
   - component: {fileID: 1833512031}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: '! Main Camera !'
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

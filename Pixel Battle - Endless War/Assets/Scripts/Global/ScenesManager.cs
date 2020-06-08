@@ -31,6 +31,7 @@ public class ScenesManager : MonoBehaviour
     public void LoadLevel(int sceneIndex)
     {
         scene_index = sceneIndex;
+        StartCoroutine(LoadAsynchronously());
         anim.SetTrigger("fade");
     }
 

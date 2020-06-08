@@ -36,7 +36,7 @@ public class DefaultAllyStatsRecorder : MonoBehaviour
             case "Witch": hp = 30; dmg = 7; move_s = 1.3f; attack_s = 0.9f; break;
             case "Necromancer": hp = 36; dmg = 13; move_s = 1.3f; attack_s = 3.5f; break;
             case "Undead": hp = 36; dmg = 13; move_s = 1.53f; attack_s = 0.8f; break;
-            case "SteelBat": hp = 50; dmg = 11; move_s = 1.6f; attack_s = 0.9f; break;
+            case "Steel Bat": hp = 50; dmg = 11; move_s = 1.6f; attack_s = 0.9f; break;
             case "Tinker": hp = 30; dmg = 12; move_s = 1.55f; attack_s = 0.7f; break;
         }
 
