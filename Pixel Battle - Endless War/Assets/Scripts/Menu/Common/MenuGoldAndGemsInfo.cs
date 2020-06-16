@@ -12,28 +12,6 @@ public class MenuGoldAndGemsInfo : MonoBehaviour
         UpdateInfo();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            GlobalData.SetInt("Gold", 0);
-            GlobalData.SetInt("Gems", 0);
-        }
-
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            GlobalData.SetInt("Gold", 10000);
-            GlobalData.SetInt("Gems", 10);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Delete))
-        {
-            PlayerPrefs.DeleteAll();
-            GlobalData.SetString("Language", "en");
-            GlobalData.SetInt("Warrior", 1);
-        }
-    }
-
     // Обновляем информацию о золоте и гемах
     public void UpdateInfo()
     {

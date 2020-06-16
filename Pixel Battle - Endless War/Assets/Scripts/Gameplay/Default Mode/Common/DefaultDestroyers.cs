@@ -5,18 +5,17 @@ public class DefaultDestroyers : MonoBehaviour
     public DefaultGameController game_controller;
 
     private UnitManager unit_manager;
-    private AudioSource audio_s;
+    private AudioClip hit_sfx;
     private int damage;
-    private bool isAlly = true;
+    private bool isAlly;
 
     private void Awake()
     {
-        if (name == "Enemy Destroyer")
-            isAlly = false;
-
-        // Если звук включён
-        if (GlobalData.GetInt("Sound") != 0)
-            audio_s = GetComponent<AudioSource>();
+        if (name == "Ally Destroyer")
+        {
+            isAlly = true;
+            hit_sfx = GetComponent<AudioSource>().clip;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -30,7 +29,7 @@ public class DefaultDestroyers : MonoBehaviour
             {
                 switch (unit_manager.UnitClass)
                 {
-                    case "Warrior": damage = 7; break;
+                    case "Warrior": damage = 8; break;
 
                     case "Paladin":
                     case "Tinker":
@@ -46,6 +45,8 @@ public class DefaultDestroyers : MonoBehaviour
 
                 game_controller.DoDamage(damage, false);
             }
+
+            unit_manager.Destroy(); // Уничтожаем юнита без записи статистики
         }
 
         // Если союзная база
@@ -54,11 +55,15 @@ public class DefaultDestroyers : MonoBehaviour
             unit_manager = collision.GetComponent<UnitManager>(); // Кэшируем скрипт
 
             if (unit_manager.UnitClass != "Spiderling")
-                game_controller.DoDamage(10, true);
+            {
+                // Звук "удара" по базе
+                if (AudioManager.instance.IsOn())
+                    GetComponent<AudioSource>().PlayOneShot(hit_sfx);
 
-            // Если звук "включён"
-            if (audio_s != null)
-                audio_s.Play();
+                game_controller.DoDamage(10, true);
+            }
+
+            unit_manager.Destroy(); // Уничтожаем юнита без записи статистики
         }
     }
 }

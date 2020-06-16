@@ -8,6 +8,7 @@ public class DefaultUnitButton : MonoBehaviour
 
     private DefaultGameController game_controller;
     private ButtonClickAnimation btn_animation; // Для анимации
+    private AudioManager audio_manager;
     private AudioSource audio_s;
     private Button button;
     private Image unit_avatar; // Картинка с изображением юнита
@@ -15,7 +16,9 @@ public class DefaultUnitButton : MonoBehaviour
 
     private string unit_name; // Имя юнита в данном "слоте"
     private int unit_cost; // Стоимость текущего юнита в мане
-    private bool isActive = true;
+    private bool 
+        isOn, // Включён ли звук
+        isActive = true;
 
     private void Awake()
     {
@@ -23,6 +26,7 @@ public class DefaultUnitButton : MonoBehaviour
         unit_avatar = transform.GetChild(1).GetComponent<Image>();
         txt_unit_cost = transform.GetChild(2).GetComponent<Text>();
         btn_animation = GetComponent<ButtonClickAnimation>();
+        audio_s = GetComponent<AudioSource>();
         button = GetComponent<Button>();
         button.onClick.AddListener(TaskOnClick);
         unit_name = CheckSlot(); // Берём имя юнита в текущем "слоте"
@@ -38,15 +42,14 @@ public class DefaultUnitButton : MonoBehaviour
             button.interactable = false;
             enabled = false; // Отключаем скрипт
         }
-
-        // Если звук включён
-        if (GlobalData.GetInt("Sound") != 0)
-            audio_s = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
         game_controller = DefaultGameController.default_controller;
+        audio_manager = AudioManager.instance;
+        isOn = audio_manager.IsOn(); // Проверяем включён ли звук
+
         LoadImage(); // Меняем аватар кнопки
         ButtonCondition(); // Проверяем состояние кнопки
     }
@@ -57,9 +60,7 @@ public class DefaultUnitButton : MonoBehaviour
         {
             if (!isActive)
             {
-                // Воспроизводим звук когда кнопка становится активной
-                if (audio_s != null)
-                    PlaySound(0.7f, 0.6f);
+                if (isOn) PlaySound(0.7f, 0.6f); // Воспроизводим звук когда кнопка становится активной
                 ButtonCondition(); // Активируем кнопку
             }
         }
@@ -71,7 +72,7 @@ public class DefaultUnitButton : MonoBehaviour
         if (isActive)
         {
             // Если звук "включён"
-            if (audio_s != null) PlaySound(1, 1);
+            if (isOn) PlaySound(1, 1);
 
             // Записываем выбранного юнита с проверкой не выбран ли он уже
             if (game_controller.ChoosedUnit != unit_name)
@@ -183,7 +184,7 @@ public class DefaultUnitButton : MonoBehaviour
                 i = 6;
                 break;
 
-            case "QueenOfArchers":
+            case "Elf Maiden":
                 size_w = 100;
                 size_h = 100;
                 scale_x = 0.9f;
@@ -193,14 +194,14 @@ public class DefaultUnitButton : MonoBehaviour
                 i = 7;
                 break;
 
-            case "Gunman":
+            case "Gunslinger":
                 size_w = 100;
                 size_h = 80;
                 pos_y = 15.7f;
                 i = 8;
                 break;
 
-            case "Berserk":
+            case "Dark Knight":
                 size_w = 140;
                 size_h = 100;
                 scale_x = 0.8f;
@@ -209,7 +210,7 @@ public class DefaultUnitButton : MonoBehaviour
                 i = 9;
                 break;
 
-            case "SteelBat":
+            case "Steel Bat":
                 size_h = 80;
                 pos_y = 15.6f;
                 i = 10;
@@ -265,19 +266,19 @@ public class DefaultUnitButton : MonoBehaviour
             case "Ninja":
                 return 15;
 
-            case "Gunman":
+            case "Gunslinger":
             case "Paladin":
-            case "SteelBat":
+            case "Steel Bat":
                 return 17;
 
-            case "QueenOfArchers":
+            case "Elf Maiden":
                 return 20;
 
             case "Necromancer":
             case "Tinker":
                 return 25;
 
-            case "Berserk":
+            case "Dark Knight":
                 return 30;
 
             default:

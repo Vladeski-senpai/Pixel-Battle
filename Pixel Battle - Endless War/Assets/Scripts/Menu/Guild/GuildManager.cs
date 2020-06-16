@@ -40,6 +40,9 @@ public class GuildManager : MonoBehaviour
     private GuildUnitInfo unit_info;
     private GuildUnitButton unit_button;
     private GameObject big_avatar; // Аватар юнита в меню покупки/апгрейда
+    private AudioSource audio_s;
+
+    private bool isOn;
     #endregion
 
     private void Awake()
@@ -47,6 +50,9 @@ public class GuildManager : MonoBehaviour
         guild_manager = this;
         money_info = GetComponent<MenuGoldAndGemsInfo>();
         unit_info = GetComponent<GuildUnitInfo>();
+        audio_s = GetComponent<AudioSource>();
+
+        if (GlobalData.GetInt("Sound") != 0) isOn = true;
     }
 
     public void BuyOrUpgradeUnit()
@@ -113,6 +119,9 @@ public class GuildManager : MonoBehaviour
             this.big_avatar = big_avatar;
             this.unit_button = unit_button;
         }
+
+        // Звук нажатия кнопки
+        if (isOn) audio_s.Play();
 
         this.unit_lvl = unit_lvl;
         menu.SetActive(true); // Включаем меню

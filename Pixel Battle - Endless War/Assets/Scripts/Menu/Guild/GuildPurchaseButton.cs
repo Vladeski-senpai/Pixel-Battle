@@ -6,23 +6,35 @@ public class GuildPurchaseButton : MonoBehaviour
     public Animator fade_obj;
 
     private GuildManager guild_manager;
+    private AudioSource audio_s;
     private Button button;
+
     private int
         gold,
         gems;
 
+    private bool isOn; // Включён ли звук
+
     private void Start()
     {
         guild_manager = GuildManager.guild_manager;
+        audio_s = GetComponent<AudioSource>();
         button = GetComponent<Button>();
         button.onClick.AddListener(TaskOnClick);
+
+        if (GlobalData.GetInt("Sound") != 0) isOn = true;
+
         UpdateButton();
     }
 
     private void TaskOnClick()
     {
+        // Звук нажатия
+        if (isOn) audio_s.Play();
+
         fade_obj.SetTrigger("activate");
         guild_manager.BuyOrUpgradeUnit();
+        UpdateButton();
     }
 
     // Обновляем кнопку

@@ -99,13 +99,14 @@ GameObject:
   - component: {fileID: 311765914045368439}
   - component: {fileID: 311765914045368441}
   - component: {fileID: 311765914045368440}
+  - component: {fileID: 5242349024780435050}
   m_Layer: 0
   m_Name: i. FadeBackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &311765914045368439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -163,6 +164,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &5242349024780435050
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 311765914045368438}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 0
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1854456111413902561
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +193,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1854456111413902560
 RectTransform:
   m_ObjectHideFlags: 0
@@ -485,7 +498,7 @@ Animator:
   m_GameObject: {fileID: 1854456112449640089}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 79147a161e9dcc4418d0b02345b3db11, type: 2}
+  m_Controller: {fileID: 9100000, guid: 791247ef94483e647b4e7127526b8de9, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -506,13 +519,14 @@ GameObject:
   - component: {fileID: 1854456113272284527}
   - component: {fileID: 1854456113272284524}
   - component: {fileID: 1854456113272284525}
+  - component: {fileID: 6138221409437848438}
   m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1854456113272284530
 RectTransform:
   m_ObjectHideFlags: 0
@@ -593,3 +607,15 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &6138221409437848438
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1854456113272284531}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0

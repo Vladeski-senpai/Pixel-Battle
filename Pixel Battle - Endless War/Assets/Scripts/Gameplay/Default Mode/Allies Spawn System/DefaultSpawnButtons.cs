@@ -6,7 +6,6 @@ public class DefaultSpawnButtons : MonoBehaviour
 {
     private DefaultGameController game_controller;
     private ButtonClickAnimation btn_animation;
-    private AudioSource audio_s;
     private Button button;
     private byte button_id;
 
@@ -16,10 +15,6 @@ public class DefaultSpawnButtons : MonoBehaviour
         button = GetComponent<Button>();
         button.onClick.AddListener(TaskOnClick);
         button_id = System.Convert.ToByte(name.Substring(8));
-
-        // Если звук включён
-        if (GlobalData.GetInt("Sound") != 0)
-            audio_s = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -29,10 +24,6 @@ public class DefaultSpawnButtons : MonoBehaviour
 
     private void TaskOnClick()
     {
-        // Если звук "включён"
-        if (audio_s != null)
-            audio_s.Play();
-
         game_controller.CreateAllyyUnit(button_id); // Посылаем запрос на создание юнита
         if (gameObject.activeSelf) StartCoroutine(CoolDown()); // Выключаем кнопку и запускаем кулдаун включения
     }

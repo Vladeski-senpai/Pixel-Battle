@@ -6,11 +6,17 @@ public class GuildExitButton : MonoBehaviour
 {
     private GuildManager guild_manager;
     private ButtonClickAnimation btn_animation;
+    private AudioSource audio_s;
+
+    private bool isOn; // Включён ли звук
 
     private void Awake()
-    {  
-        GetComponent<Button>().onClick.AddListener(TaskOnClick);
+    {
+        audio_s = GetComponent<AudioSource>();
         btn_animation = GetComponent<ButtonClickAnimation>();
+        GetComponent<Button>().onClick.AddListener(TaskOnClick);
+
+        if (GlobalData.GetInt("Sound") != 0) isOn = true;
     }
 
     private void Start()
@@ -21,7 +27,12 @@ public class GuildExitButton : MonoBehaviour
     private void TaskOnClick()
     {
         if (gameObject.activeSelf)
+        {
+            // Звук нажатия
+            if (isOn) audio_s.Play();
+
             StartCoroutine(CloseMenu());
+        }
     }
 
     private IEnumerator CloseMenu()

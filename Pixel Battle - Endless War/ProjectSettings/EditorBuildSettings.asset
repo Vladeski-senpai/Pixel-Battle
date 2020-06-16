@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Stats.unity
     guid: a806ac4e60fbda042a1edf30eca82de8
+  - enabled: 1
+    path: Assets/_Scenes/Donation.unity
+    guid: 3bb13a45ba2c19f45be06ae07b406d75
   m_configObjects: {}

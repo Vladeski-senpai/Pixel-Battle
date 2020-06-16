@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Ally
   - Enemy
+  - RangeDetector
+  - BodyPart
+  - Shell
+  - SoundManager
   layers:
   - Default
   - TransparentFX

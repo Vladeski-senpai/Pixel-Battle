@@ -52,6 +52,7 @@ public class GuildUnitButton : MonoBehaviour
         }
         else
         {
+            if (name.Substring(3) == "Archer") GetComponent<Button>().interactable = false;
             txt_unit_info.text = name.Substring(3) + ",  Locked.";
             txt_gold_cost.text = guild_manager.GetUnitGoldCost(name.Substring(3)).ToString(); // Стоимость юнита в золоте
             gold_obj.SetActive(true); // Включаем объект золота

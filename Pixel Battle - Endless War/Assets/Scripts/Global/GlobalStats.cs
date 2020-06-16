@@ -5,63 +5,68 @@
     public static int EnemiesKilled { get; private set; }
     public static int UnitsSummoned { get; private set; }
 
-    private static int stats;
-
-
     public static void SaveStatistics()
     {
-        GoldEarned += GlobalData.GetInt("Gold");
-        GemsEarned += GlobalData.GetInt("Gems");
+        GlobalData.SetInt("Gold", GlobalData.GetInt("Gold") + GoldEarned); // Записываем новое кол-во золота
+        GlobalData.SetInt("Gems", GlobalData.GetInt("Gems") + GemsEarned); // Записываем новое кол-во гемов
+        GlobalData.SetInt("StatsGoldEarned", GlobalData.GetInt("StatsGoldEarned") + GoldEarned); // Добавляем в статистику Полученного золота
+        GlobalData.SetInt("StatsGemsCollected", GlobalData.GetInt("StatsGemsCollected") + GemsEarned); // Добавляем в статистику Полученных гемов
+        GlobalData.SetInt("StatsKilled", GlobalData.GetInt("StatsKilled") + EnemiesKilled); // Добавляем в статистику Убитых противников
+        GlobalData.SetInt("StatsUnitsSummoned", GlobalData.GetInt("StatsUnitsSummoned") + UnitsSummoned); // Добавляем в статистику Созданных юнитов
 
-        GlobalData.SetInt("Gold", GoldEarned); // Записываем новое кол-во золота
-        GlobalData.SetInt("Gems", GemsEarned); // Записываем новое кол-во гемов
-
-        // Добавляем в статистику Полученного золота
-        stats = GlobalData.GetInt("StatsGoldEarned");
-        GlobalData.SetInt("StatsGoldEarned", stats + GoldEarned);
-
-        // Добавляем в статистику Полученных гемов
-        stats = GlobalData.GetInt("StatsGemsCollected");
-        GlobalData.SetInt("StatsGemsCollected", stats + GoldEarned);
-
-        // Добавляем в статистику Убитых противников
-        stats = GlobalData.GetInt("StatsKilled");
-        GlobalData.SetInt("StatsKilled", stats + EnemiesKilled);
-
-        // Добавляем в статистику Созданных юнитов
-        stats = GlobalData.GetInt("StatsUnitsSummoned");
-        GlobalData.SetInt("StatsUnitsSummoned", stats + UnitsSummoned);
+        PlayerLevelManager.player_level_manager.SaveStatistics(); // Сохраняем статистику опыта и уровня игрока
+        ClearStatistics();
     }
 
-    // Добавляем золото, которое запишем в конце раунда
+    // Очищаем поля после сохранения
+    private static void ClearStatistics()
+    {
+        GoldEarned = 0;
+        GemsEarned = 0;
+        EnemiesKilled = 0;
+        UnitsSummoned = 0;
+    }
+
+    /// <summary>
+    /// Добавляем золото, которое запишем в конце раунда
+    /// </summary>
     public static void AddGold(int amount)
     {
         GoldEarned += amount;
     }
 
-    // Добавляем гемы, которые запишем в конце раунда
+    /// <summary>
+    /// Добавляем гемы, которые запишем в конце раунда
+    /// </summary>
     public static void AddGems(int amount)
     {
         GemsEarned += amount;
     }
 
+    /// <summary>
+    /// ВНИМАНИЕ! Только те данные, которые должны сохранится после окончания матча!
+    /// </summary>
+    /// <param name="code">Enemies Killed, Units Summoned</param>
+    public static void AddToStats(string code)
+    {
+        switch (code)
+        {
+            case "Enemies Killed": EnemiesKilled++; break;
+            case "Units Summoned": UnitsSummoned++; break;
+        }
+    }
+
     // Добавляем золото мгновенно
     public static void AddInstantGold(int value)
     {
-        int current_gold;
-        current_gold = GlobalData.GetInt("Gold"); // Берём старое золото
-        current_gold += value; // Прибавляем новое золото
-        GlobalData.SetInt("Gold", current_gold); // Записываем новое золото
+        GlobalData.SetInt("Gold", GlobalData.GetInt("Gold") + value); // Записываем новое золото
         SetStats("StatsGoldEarned", value); // Добавляем золото в статистику
     }
 
     // Добавляем гемы мгновенно
     public static void AddInstantGems(int value)
     {
-        int current_gems;
-        current_gems = GlobalData.GetInt("Gems"); // Берём старое золото
-        current_gems += value; // Прибавляем новое золото
-        GlobalData.SetInt("Gems", current_gems); // Записываем новое золото
+        GlobalData.SetInt("Gems", GlobalData.GetInt("Gems") + value); // Записываем новое золото
         SetStats("StatsGemsCollected", value); // Добавляем золото в статистику
     }
 
@@ -70,20 +75,7 @@
     /// </summary>
     public static void SetStats(string name, int value)
     {
-        stats = GlobalData.GetInt(name);
-        GlobalData.SetInt(name, stats + value);
-    }
-
-    /// <summary>
-    /// ВНИМАНИЕ! Только те данные, которые должны сохранится после окончания матча!
-    /// </summary>
-    public static void AddToStats(string code, int amount)
-    {
-        switch (code)
-        {
-            case "Enemies Killed": EnemiesKilled += amount; break;
-            case "Units Summoned": UnitsSummoned += amount; break;
-        }
+        GlobalData.SetInt(name, GlobalData.GetInt(name) + value);
     }
 }
 

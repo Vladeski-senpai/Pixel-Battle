@@ -12,9 +12,6 @@ public class EnemyUnitsSelector : MonoBehaviour
     [Header("Bonus Units Store")]
     public GameObject[] BonusUnits; // Бонусный тип юнитов
 
-
-    private int unit_id; // id выбранного юнита
-
     // Выбираем Обычного юнита
     public GameObject GetRegularUnit(string unit_name)
     {
@@ -22,9 +19,9 @@ public class EnemyUnitsSelector : MonoBehaviour
         for (int i = 0; i < RegularUnits.Length; i++)
         {
             if (RegularUnits[i].name == unit_name)
-                unit_id = i;
+                return RegularUnits[i];
         }
-        return RegularUnits[unit_id];
+        return null;
     }
 
     // Выбираем Обычного юнита
@@ -34,9 +31,9 @@ public class EnemyUnitsSelector : MonoBehaviour
         for (int i = 0; i < StrongUnits.Length; i++)
         {
             if (StrongUnits[i].name == unit_name)
-                unit_id = i;
+                return StrongUnits[i];
         }
-        return StrongUnits[unit_id];
+        return null;
     }
 
     // Выбираем Обычного юнита
@@ -46,8 +43,8 @@ public class EnemyUnitsSelector : MonoBehaviour
         for (int i = 0; i < BonusUnits.Length; i++)
         {
             if (BonusUnits[i].name == unit_name)
-                unit_id = i;
+                return BonusUnits[i];
         }
-        return BonusUnits[unit_id];
+        return null;
     }
 }

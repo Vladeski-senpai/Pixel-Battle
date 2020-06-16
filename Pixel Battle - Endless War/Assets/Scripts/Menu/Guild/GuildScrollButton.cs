@@ -7,13 +7,19 @@ public class GuildScrollButton : MonoBehaviour
     public GuildScrollMenu scroll_menu; // Тело для перемещения с кнопками покупок
 
     private Image image;
+    private AudioSource audio_s;
 
-    private bool isActive; // Активна ли кнопка
+    private bool
+        isOn, // Включён ли звук
+        isActive; // Активна ли кнопка
 
     private void Start()
     {
         GetComponent<Button>().onClick.AddListener(TaskOnClick);
+        audio_s = GetComponent<AudioSource>();
         image = GetComponent<Image>();
+
+        if (GlobalData.GetInt("Sound") != 0) isOn = true;
 
         CheckActive();
     }
@@ -52,6 +58,9 @@ public class GuildScrollButton : MonoBehaviour
     {
         if (isActive)
         {
+            // Звук нажатия
+            if (isOn) audio_s.Play();
+
             if (name.Substring(3) == "Up")
                 scroll_menu.Move(-1);
             else

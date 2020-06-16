@@ -25,6 +25,10 @@ public class DefaultGameController : MonoBehaviour
         txt_enemy_hp,
         txt_boost_price, // Текст цены апгрейда маны
         txt_current_mana; // Текст текущей маны
+
+    public AudioClip
+        victory_sfx,
+        defeat_sfx;
     #endregion
 
     #region Get/Set Fields
@@ -38,11 +42,12 @@ public class DefaultGameController : MonoBehaviour
     #region Private Fields
     private DefaultAllySpawnManager spawn_manager;
     private DefaultUnitButton unit_button;
+    private AudioManager audio_manager;
     private AudioSource audio_s;
 
     private float
         unit_cost, // Стоимость юнита в мане
-        mana_regen_speed = 1.95f,
+        mana_regen_speed = 10.95f,
         mana_regen_bonus;
 
     private int enemy_health = 100; // Здоровье вражеской базы
@@ -56,10 +61,13 @@ public class DefaultGameController : MonoBehaviour
         spawn_manager = transform.GetChild(0).GetComponent<DefaultAllySpawnManager>();
         UpgradeCost = 10;
         AllyHealth = 100;
+        audio_s = GetComponent<AudioSource>();
+        ClassicDifficultSystem.map_lvl = GlobalData.GetInt("CurrentLevel"); // Записываем текущий уровень карты в скрипт сложности
+    }
 
-        // Еслю звук включён
-        if (GlobalData.GetInt("Sound") != 0)
-            audio_s = GetComponent<AudioSource>();
+    private void Start()
+    {
+        audio_manager = AudioManager.instance;
     }
 
     private void Update()
@@ -77,6 +85,7 @@ public class DefaultGameController : MonoBehaviour
     // Наносим урон базам
     public void DoDamage(int damage, bool isAllyBase)
     {
+        // Если игра не закончена
         if (!isGameFinished)
         {
             camera_anim.SetTrigger("shake"); // Запускаем дёрганье камеры
@@ -85,39 +94,50 @@ public class DefaultGameController : MonoBehaviour
             if (isAllyBase)
             {
                 // Если союзная база жива, наносим урон
-                if (AllyHealth > 0)
-                    AllyHealth -= damage;
+                if (AllyHealth > 0) AllyHealth -= damage;
 
                 // Если союзная база убита, проигрываем
                 if (AllyHealth <= 0)
                 {
+                    if (audio_manager.IsOn()) audio_s.PlayOneShot(defeat_sfx);
                     AllyHealth = 0;
                     isGameFinished = true;
                     GetComponent<DefaultRewardSystem>().CalculateReward(false, CurrentRoundTime); // Считаем награду
                 }
 
-                damage_indicator.SetTrigger("activate"); // Индикатор урон по краям карты
-
+                damage_indicator.SetTrigger("enemy"); // Индикатор урон по краям карты
                 txt_ally_hp.text = AllyHealth.ToString(); // Меняем текст с хп
                 ally_slider.value = AllyHealth; // Меняем значение слайдера с хп
             }
+
             // Если наносим урон вражеской базе
             else
             {
                 // Если вражеская база жива, наносим урон
-                if (enemy_health > 0)
-                    enemy_health -= damage;
+                if (enemy_health > 0) enemy_health -= damage;
 
                 // Если вражеская база убита, выигрываем
                 if (enemy_health <= 0)
                 {
+                    if (audio_manager.IsOn()) audio_s.PlayOneShot(victory_sfx);
                     enemy_health = 0;
                     isGameFinished = true;
                     GetComponent<DefaultRewardSystem>().CalculateReward(true, CurrentRoundTime); // Считаем награду
                 }
 
+                damage_indicator.SetTrigger("ally"); // Индикатор урон по краям карты
                 txt_enemy_hp.text = enemy_health.ToString(); // Меняем текст хп
                 enemy_slider.value = enemy_health; // Меняем значение слайдера с хп
+            }
+        }
+
+        // Если игра закончена
+        else
+        {
+            if (enabled == true)
+            {
+                GetComponent<ClassicGenerator>().StopAllCoroutines(); // Отключаем спавн вражеских юнитов
+                enabled = false;
             }
         }
     }
@@ -144,16 +164,14 @@ public class DefaultGameController : MonoBehaviour
         mana_button.AnimateText(unit_cost); // Запускаем анимацию текста затраченной маны
         spawn_manager.SpawnUnit(lane[lane_id - 1].position);
 
+        GlobalStats.AddToStats("Units Summoned");
+
+        // Звук спавна
+        if (audio_manager.IsOn()) audio_s.Play();
+
         // Если маны не хватает на создание юнита, отключаем кнопки спавна
         if (CurrentMana < unit_cost)
             SpawnButtonsCondition(false);
-
-        // Если звук "включён" (создания юнитов)
-        if (audio_s != null)
-        {
-            audio_s.pitch = Random.Range(0.8f, 1.2f);
-            audio_s.Play();
-        }
     }
 
     /// <summary>

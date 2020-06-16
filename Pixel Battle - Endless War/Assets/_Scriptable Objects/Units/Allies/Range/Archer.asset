@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a5c97fdfdb2b944897d774b8bc11f6, type: 3}
+  m_Name: Archer
+  m_EditorClassIdentifier: 
+  unit_class: Archer
+  isMelee: 0
+  canBleed: 1
+  canPoisoned: 1
+  canInfected: 1
+  shell_prefab: {fileID: 5211850060717652884, guid: a690ca38447ece840858ec7a0a202a3b,
+    type: 3}
+  hit_sfx: {fileID: 8300000, guid: 08d209c59bde2894d846a119b0a9e044, type: 3}
+  hit_sfx_volume: 1
+  hit_sfx_pitch: 0.78
+  spawn_sfx: {fileID: 0}
+  spawn_sfx_volume: 1
+  spawn_sfx_pitch: 1
+  health: 27
+  damage: 9
+  move_speed: 1.6
+  attack_speed: 0.75
+  Perks:
+  - PerkName: Critical Hit
+    PerkChance: 8
+    PerkDuration: 0
+    PerkValue: 2

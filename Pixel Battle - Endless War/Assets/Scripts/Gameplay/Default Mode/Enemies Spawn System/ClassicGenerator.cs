@@ -3,19 +3,29 @@ using UnityEngine;
 
 public class ClassicGenerator : MonoBehaviour
 {
-    public Transform // Координаты точек спавна
-        top_lane,
+    [Header("Фон карты")]
+    public SpriteRenderer background;
+    public GameObject
+        clouds_obj,
+        snow_obj;
+
+    public GameObject[] backgrounds; // Фоны карты: 0 - Summer Field, 1 - Winter Field, 2 - Desert, 3 - Dark Forest
+
+    [Header("Точки спавна")]
+    [Space]
+    public Transform top_lane;
+    public Transform
         middle_lane,
         bottom_lane;
 
     private DefaultEnemySpawnManager units_spawner; // Для спавна вражеских юнитов
     private DefaultGameController game_controller;
 
-    private string 
-        army_type, // Тип армии (Goblins, Skeletons, Spider, Snowpeople, Snakes)
-        map_type; // Тип карты (Field, Ice, Desert)
+    private string
+        army_type; // Тип армии (Goblins, Skeletons, Spider, Snowpeople, Snakes)
 
     private float spawn_time;
+    private int map_type; // Тип карты: 0 - Summer Field, 1 - Winter Field, 2 - Desert
 
     private void Awake()
     {
@@ -25,13 +35,27 @@ public class ClassicGenerator : MonoBehaviour
 
     private void Start()
     {
-        // Выбираем тип карты
-        switch (Random.Range(0, 3))
+        // Выбираем тип карты: 0 - Summer Field, 1 - Winter Field, 2 - Desert, 3 - Dark Forest
+        map_type = Random.Range(0, 4);
+        map_type = 3;
+        //backgrounds[map_type].SetActive(true); // Включаем нужный фон
+
+        // Включаем локальные для карты объекты
+        switch (map_type)
         {
-            case 0: map_type = "Field"; break; // Летнее поле
-            case 1: map_type = "Ice"; break; // Зимнее поле
-            case 2: map_type = "Desert"; break; // Пустыня
+            case 0:
+            case 1:
+            case 2:
+                clouds_obj.SetActive(true); // Включаем облака
+
+                // Звук ветра
+                if (GlobalData.GetInt("Sound") != 0)
+                    clouds_obj.GetComponent<AudioSource>().Play();
+                break;
         }
+
+        // Включаем снег на зимней карте
+        if (map_type == 1) snow_obj.SetActive(true);
 
         StartCoroutine(SpawnCD("Regular", 3)); // Обычные юниты
         StartCoroutine(SpawnCD("Strong", 3)); // Сильные юниты
@@ -44,17 +68,9 @@ public class ClassicGenerator : MonoBehaviour
     {
         switch (unit_type)
         {
-            case "Regular":
-                units_spawner.PrepareRegularUnit(GetRandomRegularUnit(), ChooseLane());
-                break;
-
-            case "Strong":
-                units_spawner.PrepareStrongUnit(GetRandomStrongUnit(), ChooseLane());
-                break;
-
-            case "Bonus":
-                units_spawner.PrepareBonusUnit(GetRandomBonusUnit(), ChooseLane());
-                break;
+            case "Regular": units_spawner.SpawnRegularUnit(GetRandomRegularUnit(), ChooseLane()); break;
+            case "Strong": units_spawner.SpawnStrongUnit(GetRandomStrongUnit(), ChooseLane()); break;
+            case "Bonus": units_spawner.SpawnBonusUnit(GetRandomBonusUnit(), ChooseLane()); break;
         }
     }
 
@@ -84,7 +100,7 @@ public class ClassicGenerator : MonoBehaviour
             case 0: return "Ogre";
             case 1: return "Minotaur";
             case 2: return "Giant Spider";
-            case 3: if (map_type != "Ice") return "Viper"; else return "Yeti";
+            case 3: return "Viper"; // Map - Winter Field, else return "Yeti";
 
             default: return "";
         }
@@ -94,11 +110,31 @@ public class ClassicGenerator : MonoBehaviour
     private string GetRandomBonusUnit()
     {
         switch (Random.Range(0, 6))
-        {
-            case 0: if (map_type != "Ice") return "Zombie"; else return "Frozen Zombie";
+        {   
+            // Зомби
+            case 0:
+                switch (map_type)
+                {
+                    case 1: return "Frozen Zombie"; // Winter Field
+                    case 2: return "Desert Zombie"; // Desert
+                    case 3: return "Dark Zombie"; // Dark Forest
+
+                    default: return "Zombie"; // Summer Field
+                }
+
+            // Летучая мышь
+            case 3:
+                switch (map_type)
+                {
+                    case 1: return "Frozen Bat"; // Winter Field
+                    case 2: return "Desert Bat"; // Desert
+                    case 3: return "Dark Bat"; // Dark Forest
+
+                    default: return "Bat"; // Summer Field
+                }
+
             case 1: return "Troll";
             case 2: return "Mutant";
-            case 3: return "Bat";
             case 4: return "Slime";
             case 5: return "Treant";
 
@@ -203,9 +239,10 @@ public class ClassicGenerator : MonoBehaviour
 
         switch (map_type)
         {
-            // Если карта "Летнее поле" и "Пустыня"
-            case "Field":
-            case "Desert":
+            // Если карта "Summer Field", "Desert", "Arena"
+            case 0:
+            case 2:
+            case 4:
                 do
                 {
                     switch (Random.Range(0, 3))
@@ -219,8 +256,8 @@ public class ClassicGenerator : MonoBehaviour
                 while (army_type == prev_type); // Предотвращаем выбор предыдущей армии
                 break;
 
-            // Если карта "Зимниее поле"
-            case "Ice":
+            // Если карта "Winter Field"
+            case 1:
                 do
                 {
                     switch (Random.Range(0, 3))
@@ -232,6 +269,21 @@ public class ClassicGenerator : MonoBehaviour
                 }
                 while (army_type == prev_type); // Предотвращаем выбор предыдущей армии
                 break;
+
+            // Если карта "Dark Forest"
+            case 3:
+                do
+                {
+                    switch (Random.Range(0, 2))
+                    {
+                        case 0: army_type = "Skeletons"; break;
+                        case 1: army_type = "Spiders"; break;
+                    }
+                    break;
+                }
+                while (army_type == prev_type); // Предотвращаем выбор предыдущей армии
+                break;
+
         }
 
         yield return new WaitForSeconds(time);

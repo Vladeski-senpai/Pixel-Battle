@@ -109,9 +109,6 @@
             case "ru":
                 switch (code)
                 {
-                    case "AdNote":
-                        return "Примечание:  в игре полностью убрана реклама,\n" + "чтобы не раздражала и не мешала игровому процессу.";
-
                     case "RateApp":
                         return "Поделитесь пожалуйста Вашим мнением об игре на Play Market. Спасибо!";
 
@@ -140,9 +137,6 @@
             case "en":
                 switch (code)
                 {
-                    case "AdNote":
-                        return "Note:  in game was completely removed ads,\n" + "so as not to irritate or interfere with the gameplay.";
-
                     case "RateApp":
                         return "Please share your opinion about the game on the Play Market. Thank you!";
 

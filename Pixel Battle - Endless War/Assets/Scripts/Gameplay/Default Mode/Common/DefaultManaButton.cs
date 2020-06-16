@@ -5,6 +5,7 @@ public class DefaultManaButton : MonoBehaviour
 {
     private DefaultGameController game_controller;
     private ButtonClickAnimation btn_animation;
+    private AudioManager audio_manager;
     private AudioSource audio_s;
     private Button button;
     private Text txt_spent_mana; // Текст потраченной маны на создание юнита
@@ -15,6 +16,7 @@ public class DefaultManaButton : MonoBehaviour
         currentY; // Текущая у координата текста маны
 
     private bool
+        isOn, // Включён ли звук
         isActive = true, // Включена ли кнопка
         isAnimated; // Анимируется ли текст
 
@@ -22,20 +24,21 @@ public class DefaultManaButton : MonoBehaviour
     {
         txt_spent_mana = transform.GetChild(3).GetComponent<Text>(); // Текст затраченной маны
         btn_animation = GetComponent<ButtonClickAnimation>();
+        audio_s = GetComponent<AudioSource>();
         button = GetComponent<Button>();
         button.onClick.AddListener(TaskOnClick);
-
-        // Если звук включён
-        if (GlobalData.GetInt("Sound") != 0)
-            audio_s = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
         game_controller = DefaultGameController.default_controller; // Кэшируем скрипт
+        audio_manager = AudioManager.instance;
+        isOn = audio_manager.IsOn(); // Проверяем включён ли звук
+
         startX = txt_spent_mana.transform.localPosition.x; // Записываем x координату текста затраченной маны на создание юнита
         startY = txt_spent_mana.transform.localPosition.y; // Записываем у координату текста затраченной маны на создание юнита
         currentY = startY;
+
         ButtonCondition(); // Проверяем состояние кнопки
     }
 
@@ -47,7 +50,7 @@ public class DefaultManaButton : MonoBehaviour
             if (!isActive)
             {
                 // Воспроизводим звук когда кнопка становится активной
-                if (audio_s != null) PlaySound(0.8f, 0.8f);
+                if (isOn) PlaySound(0.9f, 1);
 
                 ButtonCondition();
                 btn_animation.isAnimated = true;
@@ -74,8 +77,8 @@ public class DefaultManaButton : MonoBehaviour
     // Действия при нажатии на кнопку
     private void TaskOnClick()
     {
-        // Если звук "включён"
-        if (audio_s != null) PlaySound(1, 1);
+        // Если звук включён
+        if (isOn) PlaySound(0.8f, 0.8f);
 
         AnimateText(game_controller.UpgradeCost);
         game_controller.BoostMana(); // Апгрейдим ману

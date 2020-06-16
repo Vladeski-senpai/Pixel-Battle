@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a5c97fdfdb2b944897d774b8bc11f6, type: 3}
+  m_Name: Ninja
+  m_EditorClassIdentifier: 
+  unit_class: Ninja
+  isMelee: 0
+  canBleed: 1
+  canPoisoned: 1
+  canInfected: 1
+  shell_prefab: {fileID: 8292714578120480909, guid: 8596c780fb7025d45af216c644c40bc0,
+    type: 3}
+  hit_sfx: {fileID: 8300000, guid: a8f7c8985fd0f9d4caa477ea8b24455f, type: 3}
+  hit_sfx_volume: 0
+  hit_sfx_pitch: 1.2
+  spawn_sfx: {fileID: 0}
+  spawn_sfx_volume: 1
+  spawn_sfx_pitch: 1
+  health: 36
+  damage: 12
+  move_speed: 1.65
+  attack_speed: 0.7
+  Perks:
+  - PerkName: Evasion
+    PerkChance: 22
+    PerkDuration: 0
+    PerkValue: 0
+  - PerkName: Sharp Projectile
+    PerkChance: 40
+    PerkDuration: 5
+    PerkValue: 0.1

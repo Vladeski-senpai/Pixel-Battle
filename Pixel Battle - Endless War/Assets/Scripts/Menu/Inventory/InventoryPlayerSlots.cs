@@ -3,14 +3,18 @@ using UnityEngine.UI;
 
 public class InventoryPlayerSlots : MonoBehaviour
 {
+    private ButtonClickAnimation btn_animation;
     private InventoryManager inventory_manager;
     private RectTransform rect_transform;
-    private ButtonClickAnimation btn_animation;
+    private AudioSource audio_s;
     private Image avatar;
+
     private string choosed_unit;
+    private bool isOn; // Включён ли звук
 
     private void Awake()
     {
+        audio_s = GetComponent<AudioSource>();
         GetComponent<Button>().onClick.AddListener(TaskOnClick);
         avatar = transform.GetChild(0).GetComponent<Image>();
         rect_transform = avatar.GetComponent<RectTransform>();
@@ -18,6 +22,8 @@ public class InventoryPlayerSlots : MonoBehaviour
         btn_animation = GetComponent<ButtonClickAnimation>();
         btn_animation.size = 0.86f; // Меняем размер увеличенной кнопки
         btn_animation.anim_speed = 0.14f; // Меняем скорость анимации
+        
+        if (GlobalData.GetInt("Sound") != 0) isOn = true;
     }
 
     private void Start()
@@ -39,7 +45,15 @@ public class InventoryPlayerSlots : MonoBehaviour
                 ResizeAvatar();
                 inventory_manager.ResetChoosedUnit();
             }
-            else inventory_manager.PlayAnim(); // Если юнит занят, анимируем кнопку и меняем цвет обводки
+
+            inventory_manager.PlayAnim(); // Если юнит занят, анимируем кнопку и меняем цвет обводки
+
+            // Звук нажатия
+            if (isOn)
+            {
+                audio_s.pitch = 0.8f;
+                audio_s.Play();
+            }
         }
 
         // Если нету выбранного юнита, очищаем слот
@@ -51,6 +65,13 @@ public class InventoryPlayerSlots : MonoBehaviour
                 choosed_unit = "";
                 SaveSlot();
                 ResizeAvatar();
+            }
+
+            // Звук нажатия
+            if (isOn)
+            {
+                audio_s.pitch = 0.5f;
+                audio_s.Play();
             }
         }
     }
@@ -143,7 +164,7 @@ public class InventoryPlayerSlots : MonoBehaviour
                 i = 6;
                 break;
 
-            case "QueenOfArchers":
+            case "Elf Maiden":
                 size_w = 9;
                 size_h = 9;
                 scale_x = 0.9f;
@@ -153,7 +174,7 @@ public class InventoryPlayerSlots : MonoBehaviour
                 i = 7;
                 break;
 
-            case "Gunman":
+            case "Gunslinger":
                 size_w = 10;
                 scale_x = 0.95f;
                 scale_y = 0.95f;
@@ -161,7 +182,7 @@ public class InventoryPlayerSlots : MonoBehaviour
                 i = 8;
                 break;
 
-            case "Berserk":
+            case "Dark Knight":
                 size_w = 10.18f;
                 size_h = 7.27f;
                 scale_x = 1.1f;
@@ -171,7 +192,7 @@ public class InventoryPlayerSlots : MonoBehaviour
                 i = 9;
                 break;
 
-            case "SteelBat":
+            case "Steel Bat":
                 size_w = 9;
                 scale_x = 0.95f;
                 scale_y = 0.95f;

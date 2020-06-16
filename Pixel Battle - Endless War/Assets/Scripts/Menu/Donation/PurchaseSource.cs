@@ -6,9 +6,7 @@ public class PurchaseSource : MonoBehaviour
 {
     public Animator fade_out;
 
-    public Text
-        girl_text, // Слова девки
-        note_text; // Примечание
+    public Text girl_text; // Слова девки
 
     private MenuGoldAndGemsInfo money_info; // Текст золота и гемов в меню
 
@@ -19,7 +17,6 @@ public class PurchaseSource : MonoBehaviour
     private void Start()
     {
         money_info = GetComponent<MenuGoldAndGemsInfo>();
-        note_text.text = GlobalTranslateSystem.TranslateLongText("AdNote"); // Примечания о рекламе в меню Пожертвований
 
         if (PlayerPrefs.GetString("Language") == "ru")
         {
