@@ -79,7 +79,7 @@ public class InventoryPlayerSlots : MonoBehaviour
     // Проверяем есть ли текущий юнит в других слотах
     private bool CheckSlots()
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 1; i < 7; i++)
         {
             if (inventory_manager.ChoosedUnit == GlobalData.GetString("Slot" + i))
                 return true;
@@ -93,7 +93,7 @@ public class InventoryPlayerSlots : MonoBehaviour
     {
         int value = 0;
 
-        for (int i = 0; i < 6; i++)
+        for (int i = 1; i < 7; i++)
         {
             if (GlobalData.GetString("Slot" + i) != "")
                 value++;
@@ -206,6 +206,16 @@ public class InventoryPlayerSlots : MonoBehaviour
                 i = 11;
                 break;
 
+            case "Shieldman":
+                size_w = 9;
+                size_h = 10;
+                scale_x = 0.9f;
+                scale_y = 0.9f;
+                pos_x = -0.64f;
+                pos_y = 0.94f;
+                i = 12;
+                break;
+
             default:
                 size_w = 0;
                 size_h = 0;
@@ -228,11 +238,5 @@ public class InventoryPlayerSlots : MonoBehaviour
     private void SaveSlot()
     {
         GlobalData.SetString(name.Substring(3), choosed_unit);
-    }
-
-    // Воспроизводим звуки
-    private void PlaySound(float pitch, float volume)
-    {
-
     }
 }

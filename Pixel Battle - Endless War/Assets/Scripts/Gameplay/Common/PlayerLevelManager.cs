@@ -6,10 +6,7 @@ public class PlayerLevelManager : MonoBehaviour
     public static PlayerLevelManager player_level_manager;
 
     public Slider slider;
-
-    public Text
-        txt_player_lvl,
-        txt_player_xp;
+    public Text txt_player_lvl;
 
     public int player_lvl;
 
@@ -32,7 +29,6 @@ public class PlayerLevelManager : MonoBehaviour
         slider.maxValue = new_xp;
         slider.value = current_xp;
         txt_player_lvl.text = "Player Level: " + player_lvl;
-        txt_player_xp.text = "XP " + current_xp + " / " + new_xp;
     }
 
     /// <summary>
@@ -61,7 +57,6 @@ public class PlayerLevelManager : MonoBehaviour
         }
 
         slider.value = current_xp;
-        txt_player_xp.text = "XP " + current_xp + " / " + new_xp; // Обновляем текст с опытом игрока
     }
 
     // Сохраняем статистику опыта и уровня игрока
@@ -74,6 +69,6 @@ public class PlayerLevelManager : MonoBehaviour
     // Возвращаем значения опыта *игрока* нужного для перехода на следующий уровень
     public float CalculatePlayerXP()
     {
-        return 100 * Mathf.Pow(player_lvl, 1.1f); // player_basix_xp = 100, player_exponent = 1.1
+        return 100 * Mathf.Pow(player_lvl, 1.4f); // player_basix_xp = 100, player_exponent = 1.15
     }
 }

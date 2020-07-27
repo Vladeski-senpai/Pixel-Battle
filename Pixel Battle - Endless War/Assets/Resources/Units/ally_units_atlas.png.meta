@@ -85,25 +85,25 @@ TextureImporter:
     second: ninja_arm
   - first:
       213: 4548366253632936430
-    second: berserk_head
+    second: dark_knight_head
   - first:
       213: 6604022381121818284
-    second: berserk_body
+    second: dark_knight_body
   - first:
       213: 966429419382639470
     second: berserk_legs
   - first:
       213: 4262238213411328372
-    second: berserk_shield
+    second: dark_knight_shield
   - first:
       213: -8464763716666811315
-    second: berserk_sword
+    second: dark_knight_sword
   - first:
       213: -709403284860506757
-    second: berserk_right_leg
+    second: dark_knight_right_leg
   - first:
       213: 1413707197376036777
-    second: berserk_left_leg
+    second: dark_knight_left_leg
   - first:
       213: 966429419382639470
     second: archer_head
@@ -124,34 +124,34 @@ TextureImporter:
     second: archer_arrow
   - first:
       213: 2462083490677125741
-    second: queen_of_archers_head
+    second: elf_maiden_head
   - first:
       213: 2992360292378160205
-    second: queen_of_archers_body
+    second: elf_maiden_body
   - first:
       213: -8501551262912931193
-    second: queen_of_archers_legs
+    second: elf_maiden_legs
   - first:
       213: 2979905382246985604
-    second: queen_of_archers_bow
+    second: elf_maiden_bow
   - first:
       213: -6836192098678615695
-    second: queen_of_archers_arm
+    second: elf_maiden_arm
   - first:
       213: 2702270049272751757
-    second: queen_of_archers_arrow
+    second: elf_maiden_arrow
   - first:
       213: -3285619256892543778
-    second: gunman_head
+    second: gunslinger_head
   - first:
       213: -5908759359588296518
-    second: gunman_body
+    second: gunslinger_body
   - first:
       213: 5872193014921080009
-    second: gunman_legs
+    second: gunslinger_legs
   - first:
       213: 47479835394062298
-    second: gunman_revolver
+    second: gunslinger_revolver
   - first:
       213: 8338401324557409781
     second: necromancer_head
@@ -302,6 +302,21 @@ TextureImporter:
   - first:
       213: 8458499342701607438
     second: villager_3_weapon
+  - first:
+      213: 7326655148063621590
+    second: shieldman_head
+  - first:
+      213: -5171730879950597254
+    second: shieldman_shield
+  - first:
+      213: 3229795121691762461
+    second: shield_man_body
+  - first:
+      213: -226634107248639501
+    second: shieldman_legs
+  - first:
+      213: 3771627039654046827
+    second: shieldman_arm
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -945,7 +960,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berserk_head
+      name: dark_knight_head
       rect:
         serializedVersion: 2
         x: 75
@@ -966,7 +981,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berserk_body
+      name: dark_knight_body
       rect:
         serializedVersion: 2
         x: 90
@@ -987,7 +1002,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berserk_shield
+      name: dark_knight_shield
       rect:
         serializedVersion: 2
         x: 90
@@ -1008,7 +1023,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berserk_sword
+      name: dark_knight_sword
       rect:
         serializedVersion: 2
         x: 102
@@ -1029,7 +1044,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berserk_right_leg
+      name: dark_knight_right_leg
       rect:
         serializedVersion: 2
         x: 99
@@ -1050,7 +1065,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: berserk_left_leg
+      name: dark_knight_left_leg
       rect:
         serializedVersion: 2
         x: 96
@@ -1197,7 +1212,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: queen_of_archers_head
+      name: elf_maiden_head
       rect:
         serializedVersion: 2
         x: 33
@@ -1218,7 +1233,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: queen_of_archers_body
+      name: elf_maiden_body
       rect:
         serializedVersion: 2
         x: 44
@@ -1239,7 +1254,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: queen_of_archers_legs
+      name: elf_maiden_legs
       rect:
         serializedVersion: 2
         x: 44
@@ -1260,7 +1275,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: queen_of_archers_bow
+      name: elf_maiden_bow
       rect:
         serializedVersion: 2
         x: 49
@@ -1281,7 +1296,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: queen_of_archers_arm
+      name: elf_maiden_arm
       rect:
         serializedVersion: 2
         x: 44
@@ -1302,7 +1317,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: queen_of_archers_arrow
+      name: elf_maiden_arrow
       rect:
         serializedVersion: 2
         x: 33
@@ -1323,7 +1338,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunman_head
+      name: gunslinger_head
       rect:
         serializedVersion: 2
         x: 40
@@ -1344,7 +1359,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunman_body
+      name: gunslinger_body
       rect:
         serializedVersion: 2
         x: 51
@@ -1365,7 +1380,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunman_legs
+      name: gunslinger_legs
       rect:
         serializedVersion: 2
         x: 51
@@ -1386,7 +1401,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gunman_revolver
+      name: gunslinger_revolver
       rect:
         serializedVersion: 2
         x: 56
@@ -2360,7 +2375,7 @@ TextureImporter:
         width: 8
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2381,7 +2396,7 @@ TextureImporter:
         width: 4
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2402,7 +2417,7 @@ TextureImporter:
         width: 4
         height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2423,7 +2438,7 @@ TextureImporter:
         width: 3
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2431,6 +2446,111 @@ TextureImporter:
       bones: []
       spriteID: e0aba9e4650a26570800000000000000
       internalID: 8458499342701607438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shieldman_head
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 83
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d18e14f9028da560800000000000000
+      internalID: 7326655148063621590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shieldman_shield
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 80
+        width: 3
+        height: 12
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7350aa6a225a38b0800000000000000
+      internalID: -5171730879950597254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shield_man_body
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 79
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1f1abd0d8982dc20800000000000000
+      internalID: 3229795121691762461
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shieldman_legs
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 80
+        width: 4
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f1057fea75dadcf0800000000000000
+      internalID: -226634107248639501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: shieldman_arm
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 91
+        width: 3
+        height: 1
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6c66d34fc2875430800000000000000
+      internalID: 3771627039654046827
       vertices: []
       indices: 
       edges: []

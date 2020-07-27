@@ -12,37 +12,32 @@
                 switch (code)
                 {
                     case "Tap to play":
+                    case "Inventory":
                         return "Нажмите, чтобы играть";
 
-                    case "Menu":
-                        return "Меню";
-
-                    case "Guild":
-                        return "Гильдия";
-
-                    case "Settings":
-                        return "Настройки";
-
-                    case "Stats":
-                        return "Статистика";
-
-                    case "Restart":
-                        return "Повторить";
-
-                    case "Back":
-                        return "Назад";
-
-                    case "Play":
-                        return "Играть";
-
-                    case "Loading":
-                        return "Загрузка";
-
-                    case "Pause":
-                        return "Пауза";
-
-                    case "Resume":
-                        return "Возобновить";
+                    case "Menu": return "Меню";
+                    case "Guild": return "Гильдия";
+                    case "Settings": return "Настройки";
+                    case "Stats": return "Статистика";
+                    case "Restart": return "Повторить";
+                    case "Back": return "Назад";
+                    case "Play": return "Играть";
+                    case "Loading": return "Загрузка";
+                    case "Pause": return "Пауза";
+                    case "Resume": return "Возобновить";
+                    case "Donation": return "Пожертвования";
+                    case "Donate": return "Пожертвовать";
+                    case "Purchase": return "Приобрести";
+                    case "Upgrade": return "Улучшить";
+                    case "Locked": return "Заблокирован";
+                    case "Choose units:": return "Выберите юнитов:";
+                    case "Level:": return "Уровень:";
+                    case "Player Level:": return "Уровень игрока:";
+                    case "Continue": return "Продолжить";
+                    case "Choose  gamemode:": return "Выберите  режим:";
+                    case "Classic": return "Классический";
+                    case "Arena": return "Arena";
+                    case "Tower Defenсe (soon)": return "Защита Башни (скоро)";
                 }
                 break;
 
@@ -109,8 +104,8 @@
             case "ru":
                 switch (code)
                 {
-                    case "RateApp":
-                        return "Поделитесь пожалуйста Вашим мнением об игре на Play Market. Спасибо!";
+                    case "Rate Msg":
+                        return "Поделитесь своим мнением об игре на Play Market. Спасибо!";
 
                     case "Warrior1":
                         return "Жители сказали что гоблины где-то здесь...";
@@ -137,7 +132,7 @@
             case "en":
                 switch (code)
                 {
-                    case "RateApp":
+                    case "Rate Msg":
                         return "Please share your opinion about the game on the Play Market. Thank you!";
 
                     case "Warrior1":

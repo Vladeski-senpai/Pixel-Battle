@@ -8,17 +8,13 @@ public class PurchaseSource : MonoBehaviour
 
     public Text girl_text; // Слова девки
 
-    private MenuGoldAndGemsInfo money_info; // Текст золота и гемов в меню
-
     private int
         gold,
         gems;
 
     private void Start()
     {
-        money_info = GetComponent<MenuGoldAndGemsInfo>();
-
-        if (PlayerPrefs.GetString("Language") == "ru")
+        if (GlobalData.GetString("Language") == "ru")
         {
             girl_text.text = "Привет!\n\n" + "Если Вам понравилась игра и Вы хотите поддержать разработчиков, пожалуйста выберите нужную сумму левее :)";
         }
@@ -59,7 +55,7 @@ public class PurchaseSource : MonoBehaviour
         GlobalStats.AddInstantGems(gems);
 
         // Обновляем текст на странице
-        money_info.UpdateInfo();
+        GetComponent<MenuGoldAndGemsInfo>().UpdateInfo();
 
         // Вызываем белый эффект
         fade_out.SetTrigger("activate");

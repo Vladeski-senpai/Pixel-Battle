@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a5c97fdfdb2b944897d774b8bc11f6, type: 3}
+  m_Name: Snake Melee
+  m_EditorClassIdentifier: 
+  unit_class: Snake Melee
+  isMelee: 1
+  shakeHits: 0
+  shakeShoot: 0
+  canBleed: 1
+  canBePoisoned: 1
+  canBeInfected: 1
+  canAlwaysMove: 0
+  canSwapLanes: 0
+  death_particles: {fileID: 0}
+  shell_prefab: {fileID: 0}
+  hit_sfx: {fileID: 8300000, guid: a8f7c8985fd0f9d4caa477ea8b24455f, type: 3}
+  hit_sfx_volume: 1
+  hit_sfx_pitch: 1.25
+  spawn_sfx: {fileID: 8300000, guid: 4a0ee9cb432b15a428cd049af2df418c, type: 3}
+  spawn_sfx_volume: 1
+  spawn_sfx_pitch: 1.19
+  health: 35
+  damage: 12
+  move_speed: 1.5
+  attack_speed: 0.8
+  dp_color1: {r: 0.5529412, g: 0.8196079, b: 0.3921569, a: 1}
+  dp_color2: {r: 0.9843138, g: 0.9490197, b: 0.6627451, a: 1}
+  dp_color3: {r: 0.2901961, g: 0.56078434, b: 0.1254902, a: 1}
+  Perks:
+  - PerkName: Poison Hit
+    PerkChance: 9
+    PerkDuration: 6
+    PerkValue: 0.09
+  - PerkName: Evasion
+    PerkChance: 7
+    PerkDuration: 0
+    PerkValue: 0
+  - PerkName: Deep Cut
+    PerkChance: 7
+    PerkDuration: 5
+    PerkValue: 0.1

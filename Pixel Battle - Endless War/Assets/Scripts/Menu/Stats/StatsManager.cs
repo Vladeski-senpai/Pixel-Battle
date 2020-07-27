@@ -27,7 +27,7 @@ public class StatsManager : MonoBehaviour
 
     private string Translate(string text, string data)
     {
-        return GlobalTranslateSystem.TranslateShortText(text) + ":  "
+        return GlobalTranslateSystem.TranslateStatsText(text) + ":  "
             + GlobalData.GetInt(data);
     }
 }

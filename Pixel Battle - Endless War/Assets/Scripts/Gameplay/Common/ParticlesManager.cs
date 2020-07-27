@@ -5,6 +5,8 @@ public class ParticlesManager : MonoBehaviour
     public static ParticlesManager instance;
 
     public GameObject
+        death_particles,
+        big_death_particles,
         coin_particle,
         shell_hit,
         shell_block_particle,
@@ -12,8 +14,7 @@ public class ParticlesManager : MonoBehaviour
         poison_particle,
         execution_particle,
         critical_hit_particle,
-        ally_explosion,
-        enemy_explosion;
+        smoke_explosion; // Старый эффект смерти юнитов
 
     [Space]
     public Transform particles_trashcan;
@@ -25,6 +26,25 @@ public class ParticlesManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+    }
+    
+    // Создаём частицы смерти
+    public void DeathParticles(int size, float[] colors, float posX, float posY)
+    {
+        GameObject dp;
+
+        if (size == 0)
+            dp = Instantiate(death_particles, new Vector2(posX, posY), Quaternion.identity);
+        else
+            dp = Instantiate(big_death_particles, new Vector2(posX, posY), Quaternion.identity);
+
+        dp.GetComponent<NewDeathParticles>().SetColor(colors);
+    }
+
+    // Создаём большие частицы смерти
+    public void BigDeathParticles(float[] colors, float posX, float posY)
+    {
+
     }
 
     // Создаём частицы
@@ -55,11 +75,8 @@ public class ParticlesManager : MonoBehaviour
                 // Частица критического урона (красный череп)
                 case "Critical": temp = critical_hit_particle; break;
 
-                // Частицы смерти СОЮЗНОГО юнита
-                case "True Death": temp = ally_explosion; break;
-
-                // Частицы смерти ВРАЖЕСКОГО юнита
-                case "False Death": temp = enemy_explosion; break;
+                // Старый частицы смерти юнита
+                case "Death": temp = smoke_explosion; break;
             }
         }
 

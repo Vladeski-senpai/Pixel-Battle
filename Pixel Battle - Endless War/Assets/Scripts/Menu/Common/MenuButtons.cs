@@ -4,20 +4,17 @@ using UnityEngine.UI;
 public class MenuButtons : MonoBehaviour
 {
     private AudioSource audio_s;
-    private bool isOn; // Включён ли звук
 
     private void Awake()
     {
         audio_s = GetComponent<AudioSource>();
         GetComponent<Button>().onClick.AddListener(TaskOnClick);
-
-        if (GlobalData.GetInt("Sound") != 0) isOn = true;
     }
 
     private void TaskOnClick()
     {
         // Звук нажатия
-        if (isOn) audio_s.Play();
+        if (GlobalData.GetInt("Sound") != 0) audio_s.Play();
 
         switch (name.Substring(3))
         {

@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a5c97fdfdb2b944897d774b8bc11f6, type: 3}
+  m_Name: Goblin Melee
+  m_EditorClassIdentifier: 
+  unit_class: Goblin Melee
+  death_particles_size: 0
+  isMelee: 1
+  shakeHits: 0
+  shakeShoot: 0
+  canBleed: 1
+  canBePoisoned: 1
+  canBeInfected: 1
+  canAlwaysMove: 0
+  canSwapLanes: 0
+  shell_prefab: {fileID: 0}
+  hit_sfx: {fileID: 8300000, guid: a8f7c8985fd0f9d4caa477ea8b24455f, type: 3}
+  hit_sfx_volume: 0.9
+  hit_sfx_pitch: 0.9
+  spawn_sfx: {fileID: 8300000, guid: 1ca0aac1c9723844eb28faf2b852110e, type: 3}
+  spawn_sfx_volume: 1
+  spawn_sfx_pitch: 1
+  health: 38
+  damage: 13
+  move_speed: 1.45
+  attack_speed: 0.8
+  slow_strength: 0.3
+  slow_frames: 2
+  punch_strength: 10
+  punch_chance: 35
+  dp_color1: {r: 0.86274517, g: 0.76470596, b: 0.76470596, a: 1}
+  dp_color2: {r: 0.20784315, g: 0.50980395, b: 0.20784315, a: 1}
+  dp_color3: {r: 0.34509805, g: 0.2392157, b: 0.14117648, a: 1}
+  Perks:
+  - PerkName: Shell Block
+    PerkChance: 7
+    PerkDuration: 0
+    PerkValue: 0
+  - PerkName: Parry Stun
+    PerkChance: 7
+    PerkDuration: 2
+    PerkValue: 0

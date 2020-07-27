@@ -7,6 +7,9 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager inventory_manager;
     public Text txt_lvl_num;
     public Sprite[] sprites;
+    public GameObject
+        arena_obj,
+        classic_obj;
 
     public string ChoosedUnit { get; private set; }
 
@@ -28,6 +31,13 @@ public class InventoryManager : MonoBehaviour
 
     private void Start()
     {
+        // Если режим Арена
+        if (GlobalData.GetInt("GameMode") != 0)
+        {
+            classic_obj.SetActive(false);
+            arena_obj.SetActive(true);
+        }
+
         ChangeLvlText(GlobalData.GetInt("CurrentLevel"));
     }
 

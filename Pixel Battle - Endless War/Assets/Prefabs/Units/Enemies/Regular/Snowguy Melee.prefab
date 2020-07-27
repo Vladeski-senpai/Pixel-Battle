@@ -729,7 +729,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6543755834104591998}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6255641, y: -0.50864846, z: -7}
+  m_LocalPosition: {x: -1.6255641, y: -0.50864846, z: 0}
   m_LocalScale: {x: -13, y: 13, z: 1}
   m_Children:
   - {fileID: 165558104803443919}
@@ -769,6 +769,7 @@ MonoBehaviour:
   fire_points: []
   particles_manager: {fileID: 0}
   animator: {fileID: 0}
+  turret: {fileID: 0}
 --- !u!50 &6385041571592215533
 Rigidbody2D:
   serializedVersion: 4

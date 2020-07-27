@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a5c97fdfdb2b944897d774b8bc11f6, type: 3}
+  m_Name: Dark Bat
+  m_EditorClassIdentifier: 
+  unit_class: Dark Bat
+  death_particles_size: 0
+  isMelee: 1
+  shakeHits: 0
+  shakeShoot: 0
+  canBleed: 1
+  canBePoisoned: 1
+  canBeInfected: 1
+  canAlwaysMove: 0
+  canSwapLanes: 1
+  shell_prefab: {fileID: 0}
+  hit_sfx: {fileID: 8300000, guid: a8f7c8985fd0f9d4caa477ea8b24455f, type: 3}
+  hit_sfx_volume: 1
+  hit_sfx_pitch: 1.77
+  spawn_sfx: {fileID: 8300000, guid: ca353a035b2e96446b51a6d92b58cee9, type: 3}
+  spawn_sfx_volume: 1
+  spawn_sfx_pitch: 1
+  health: 20
+  damage: 10
+  move_speed: 1.7
+  attack_speed: 0.7
+  slow_strength: 0.3
+  slow_frames: 2
+  punch_strength: -1
+  punch_chance: 30
+  dp_color1: {r: 0.25882354, g: 0.19607845, b: 0.4039216, a: 1}
+  dp_color2: {r: 0.5294118, g: 0.19607845, b: 0.6156863, a: 1}
+  dp_color3: {r: 0.7725491, g: 0.08235294, b: 0.7607844, a: 1}
+  Perks:
+  - PerkName: TP Out
+    PerkChance: 7
+    PerkDuration: 0
+    PerkValue: 0

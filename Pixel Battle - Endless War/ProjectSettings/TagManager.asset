@@ -10,6 +10,7 @@ TagManager:
   - BodyPart
   - Shell
   - SoundManager
+  - Shield
   layers:
   - Default
   - TransparentFX

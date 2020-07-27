@@ -15,8 +15,14 @@ public class ScenesManager : MonoBehaviour
 
     private void Awake()
     {
-        GlobalTranslateSystem.language = GlobalData.GetString("Language");
 
+        // Если первый запуск игры
+        if (GlobalData.GetInt("FirstLaunch") == 0)
+        {
+            FirstLaunch();
+        }
+
+        GlobalTranslateSystem.language = GlobalData.GetString("Language");
         Application.targetFrameRate = 60; // Устанавливаем максимальный фпс
     }
 
@@ -28,52 +34,22 @@ public class ScenesManager : MonoBehaviour
         loading_text.text = GlobalTranslateSystem.TranslateShortText("Loading");
     }
 
-    private void Update()
+    private void FirstLaunch()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            GlobalData.SetInt("Gold", 0);
-            GlobalData.SetInt("Gems", 0);
-        }
+        GlobalData.SetInt("FirstLaunch", 1);
+        GlobalData.SetInt("PlayerLvl", 1);
+        GlobalData.SetString("Language", "en");
+        GlobalData.SetInt("CurrentLevel", 1);
+        GlobalData.SetInt("MaxLevel", 1);
+        GlobalData.SetInt("Sound", 1);
+        GlobalData.SetInt("Music", 1);
+        GlobalData.SetInt("Undead", 1);
+        GlobalData.SetInt("Spiderling", 1);
+        GlobalData.SetInt("Turret", 1);
 
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            GlobalData.SetInt("Gold", 10000);
-            GlobalData.SetInt("Gems", 10);
-        }
-
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            DefaultGameController.default_controller.DoDamage(25, false);
-        }
-
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            DefaultGameController.default_controller.DoDamage(25, true);
-        }
-
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            NewLvlAnimation.new_lvl_animation.Enable();
-        }
-
-        if (Input.GetKeyDown(KeyCode.Delete))
-        {
-            PlayerPrefs.DeleteAll();
-            GlobalData.SetInt("PlayerLvl", 1);
-            GlobalData.SetString("Language", "en");
-            GlobalData.SetInt("CurrentLevel", 1);
-            GlobalData.SetInt("MaxLevel", 1);
-            GlobalData.SetInt("Sound", 1);
-            GlobalData.SetInt("Music", 1);
-            GlobalData.SetInt("Undead", 1);
-            GlobalData.SetInt("Spiderling", 1);
-            GlobalData.SetInt("Turret", 1);
-
-            GlobalData.SetInt("Warrior", 1);
-            GlobalData.SetString("Slot1", "Warrior");
-            GlobalStats.SetStats("StatsUnitsUnlocked", 1); // Добавляем в статистику +1 разблокированный юнит
-        }
+        GlobalData.SetInt("Warrior", 1);
+        GlobalData.SetString("Slot1", "Warrior");
+        GlobalStats.SetStats("StatsUnitsUnlocked", 1); // Добавляем в статистику +1 разблокированный юнит
     }
 
     // Запускаем анимацию экрана загрузки и записываем номер переключаемой сцены

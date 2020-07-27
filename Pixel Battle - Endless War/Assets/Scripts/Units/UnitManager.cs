@@ -19,6 +19,9 @@ public class UnitManager : MonoBehaviour
 
     [HideInInspector]
     public GameObject turret; // Спрайт турели у тинкера
+
+    [HideInInspector]
+    public Rigidbody2D rb;
     #endregion
 
     #region Get/Set Fields
@@ -30,35 +33,50 @@ public class UnitManager : MonoBehaviour
     public float MoveSpeed { get; set; }
     public float BasicAS { get; set; } // Базовая скорость атаки
     public float AttackSpeed { get; set; }
-    public bool IsInfectedByZombie { get; set; } // Заражён ли вирусом "Обычного Зомби"
-    public bool IsInfectedByFrozenZombie { get; set; } // Заражён ли вирусом "Замороженного Зомби"
-    public bool IsInfectedBySpider { get; set; } // Заражён ли вирусом "Гигантского Паука"
+    public int VirusType { get; set; } // Заражён ли вирусом Зомби/Паука (0 - нет), типы: 1 - обычный, - 2 зимний, 3 - пустынный, 4 - тёмный; Паук - 5
     public bool IsDead { get; private set; } // Мёртв ли юнит
+    public bool CanBePushed { get; private set; } // Может ли быть толкнутым
     #endregion
 
     #region Private Fields
     private UnitFightManager fight_manager;
     private AudioManager audio_manager;
     private UnitManager enemy;
-    private Rigidbody2D rb;
     private AudioSource audio_s;
     private AudioClip clip;
-    private Vector2 direction = Vector2.left;
-    private GameObject 
+    private CameraShake cam_shake;
+    private GameObject
         unit_wrapper, // Отключаем объект юнита в момент "смерти"
         shell_prefab; // Префаб снаряда
 
     private List<UnitEvasionEffect> body_parts = new List<UnitEvasionEffect>();
 
-    private int 
+    private float
+        slow_strength, // Время замедления времени при ударах
+        punch_strength, // Сила толчка
+        newX;
+
+    private float[] death_particles_colors; // Цвета частиц смерти (rgb x3)
+
+    private int
+        dp_size, // Размер частиц смерти (0 - обычные, 1 - большие)
+        direction = -1, // Направление движения
+        turrets = 1, // Кол-во турелей
+        slow_frames, // Кол-во кадров замедления времени при ударах
+        punch_chance, // Шанс толчка
         ninja_throws = 3, // Кол-во сюрикенов ниндзи
         gunslinger_shot; // Номер выстрела юнита Gunslinger, 0 - левое оружие, 1 - правое оружие
 
+
     private bool
         necroSlow, // Замедлен ли юнит Necromancer
+        canAttack = true, // Может ли атаковать
         canBleed, // Может ли истекать кровью
-        canPoisoned, // Может ли отравиться
-        canInfected, // Может ли быть инфецирован (зомби/паук)
+        canBePoisoned, // Может ли отравиться
+        canBeInfected, // Может ли быть инфецирован (зомби/паук)
+        canAlwaysMove, // Может ли всегда двигаться (кроме когда оглушён)
+        shakeHits, // Трясётся ли камера при ударах
+        shakeShoot, // Трясётся ли камера В НАЧАЛЕ удара
         havePerks,
         isAlly,
         isMelee;
@@ -66,7 +84,6 @@ public class UnitManager : MonoBehaviour
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
         audio_s = GetComponent<AudioSource>();
         fight_manager = GetComponent<UnitFightManager>();
         unit_wrapper = transform.GetChild(0).gameObject;
@@ -76,7 +93,7 @@ public class UnitManager : MonoBehaviour
         if (CompareTag("Ally"))
         {
             isAlly = true;
-            direction = Vector2.right; // Направление движения
+            direction = 1; // Направление движения
         }
     }
 
@@ -84,6 +101,8 @@ public class UnitManager : MonoBehaviour
     {
         audio_manager = AudioManager.instance; // Кэшируем скрипт
         particles_manager = ParticlesManager.instance; // Кэшируем скрипт
+        cam_shake = CameraShake.instance;
+        rb = GetComponent<Rigidbody2D>();
 
         PrepareBasicStats(); // Устанавливаем базовые статы юнита
         CalculateStats(); // Пересчитываем статы
@@ -92,64 +111,50 @@ public class UnitManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.G))
-            AddEffect("Evasion");
-
-        if (Input.GetKeyDown(KeyCode.P))
-            AddEffect("Poisoned");
-
-        if (Input.GetKeyDown(KeyCode.B))
-            AddEffect("Bleeding");
-
-        if (enemy != null && !fight_manager.attackCD)
+        if (enemy != null && !fight_manager.attackCD && !enemy.IsDead && canAttack)
         {
             // Если не застанен
-            if (!fight_manager.isStunned)
+            if (!fight_manager.IsStunned)
             {
-                // Звук удара/выстрела
-                if (audio_manager.PlayHitSound()) audio_s.PlayOneShot(clip);
+                if (audio_manager.PlayHitSound()) audio_s.PlayOneShot(clip); // Звук удара/выстрела
+
+                // Если жив
+                if (!IsDead) animator.SetBool("attacking", true);
 
                 fight_manager.attackCD = true;
-                animator.SetBool("attacking", true);
                 StartCoroutine(fight_manager.AttackCD(AttackSpeed)); // Запускаем откат кулдауна атаки
             }
         }
 
+        if (enemy == null && !fight_manager.IsStunned) Movement(); // Двигаемся когда врага нет и не оглушены
+        else if (enemy != null && canAlwaysMove && !fight_manager.IsStunned) Movement(); // Двигаемся всегда, кроме когда оглушены
+
         // Проверяем не умер ли юнит
         if (Health <= 0) Death();
+        else if (Health > MaxHealth) Health = MaxHealth;
     }
 
     // Движение юнита
-    private void FixedUpdate()
+    private void Movement()
     {
-        if (enemy == null && !fight_manager.isStunned)
-        {
-            rb.MovePosition((Vector2)transform.position + (direction * MoveSpeed * Time.deltaTime));
-        }
-        // Некромансер всегда двигается
-        else if (isAlly && !fight_manager.isStunned && UnitClass == "Necromancer")
-        {
-            rb.MovePosition((Vector2)transform.position + (direction * MoveSpeed * Time.deltaTime));
-        }
+        newX = Mathf.MoveTowards(transform.position.x, transform.position.x + direction, MoveSpeed * Time.deltaTime);
+        transform.position = new Vector3(newX, transform.position.y, transform.position.z);
     }
 
+    #region Battle
     // Начинаем атаку (из аниматора)
     public void StartAttack()
     {
-        if (isMelee)
-        {
-            Attack(false, enemy); // Проводим атаку
-        }
-        else
-        {
-            SpawnShell(); // Создаём снаряд
-        }
+        if (shakeShoot) cam_shake.SmallShake(); // Трясём камеру
+
+        if (isMelee) Attack(false, enemy); // Проводим атаку
+        else SpawnShell(); // Создаём снаряд
     }
 
     // Проводим атаку
     public void Attack(bool isShell, UnitManager enemy)
     {
-        if (enemy != null)
+        if (enemy != null && !enemy.IsDead)
         {
             // Проверяем "защитные" перки
             float final_damage = enemy.CheckDefensivePerks(Damage, isShell, this);
@@ -157,20 +162,31 @@ public class UnitManager : MonoBehaviour
             // Если атаку не заблокировали
             if (final_damage > 0)
             {
+                // Трясём камеру при ударах
+                if (shakeHits) cam_shake.SmallShake();
+
                 // Если есть "атакующие" перки, проверяем их и наносим урон
-                if (havePerks)
+                if (havePerks) enemy.DoDamage(fight_manager.CheckAttackingPerks(final_damage, isShell, enemy));
+                else enemy.DoDamage(final_damage); // Если "атакующих" перков нет, просто наносим возвращённый урон
+
+                // Толкаем противника
+                if (punch_strength != 0 && Random.Range(0, 99) < punch_chance && enemy.CanBePushed)
                 {
-                    enemy.DoDamage(fight_manager.CheckAttackingPerks(final_damage, isShell, enemy));
+                    enemy.rb.AddForce(Vector2.right * 
+                        Random.Range(punch_strength - 1.2f, punch_strength + 1.2f) * direction, ForceMode2D.Impulse);
                 }
-                // Если "атакующих" перков нет, просто наносим возвращённый урон
-                else
+
+                // Замедляем время на доли секунд при нанесении урона
+                if (Time.timeScale == 1)
                 {
-                    enemy.DoDamage(final_damage);
+                    Time.timeScale = slow_strength;
+                    StartCoroutine(ResumeTime());
                 }
 
                 // Создаём частицы попадания снаряда
                 if (isShell) particles_manager.SpawnParticles("Shell Hit",
-                    enemy.transform.position.x + Random.Range(-0.25f, 0.2f), enemy.transform.position.y + Random.Range(-0.05f, 0.45f));
+                    enemy.transform.position.x + Random.Range(-0.25f, 0.2f),
+                    enemy.transform.position.y + Random.Range(-0.05f, 0.45f));
             }
             else
             {
@@ -202,6 +218,17 @@ public class UnitManager : MonoBehaviour
         Health -= damage;
     }
 
+    // Возобновляем время после замедления
+    private IEnumerator ResumeTime()
+    {
+        for (int i = 0; i < slow_frames; i++)
+        {
+            yield return null;
+        }
+
+        Time.timeScale = 1;
+    }
+
     // Создаём снаряд
     public void SpawnShell()
     {
@@ -210,6 +237,8 @@ public class UnitManager : MonoBehaviour
             AdditionalUnitsSpawner.instance.SpawnUnit("Undead", transform.position.x - 1, transform.position.y);
             AdditionalUnitsSpawner.instance.SpawnUnit("Undead", transform.position.x + 2, transform.position.y);
         }
+
+        // Если стрелок
         else if (isAlly && UnitClass == "Gunslinger")
         {
 
@@ -251,6 +280,17 @@ public class UnitManager : MonoBehaviour
                 animator.SetBool("range", false);
             }
         }
+
+        else if (!isAlly && UnitClass == "Dark Slime")
+        {
+            GameObject temp;
+            for (int i = 0; i < 3; i++)
+            {
+                temp = Instantiate(shell_prefab, fire_points[i].position, Quaternion.identity);
+                temp.GetComponent<ShellManager>().SetStats(isAlly, UnitClass, this);
+                temp.GetComponent<ShellManager>().spike_id = i + 1;
+            }
+        }
         else
         {
             GameObject temp = Instantiate(shell_prefab, fire_points[0].position, Quaternion.identity);
@@ -260,6 +300,28 @@ public class UnitManager : MonoBehaviour
             if (havePerks) fight_manager.CheckShellPerks(temp.GetComponent<ShellManager>());
         }
     }
+
+    // Способности по вызову нажатия
+    public void TouchAbilities()
+    {
+        if (UnitClass == "Tinker" && turrets > 0)
+        {
+            turrets--;
+            turret.SetActive(false); // Отключаем спрайт турели тинкера
+            AdditionalUnitsSpawner.instance.SpawnUnit("Turret", transform.position.x - 0.217f, transform.position.y + 0.12f);
+        }
+        else if (UnitClass == "Shieldman")
+        {
+            animator.SetBool("block", canAttack);
+            canAlwaysMove = canAttack;
+            canAttack = !canAttack;
+            CanBePushed = canAttack;
+
+            if (!canAttack) StartCoroutine(fight_manager.ChangeSpeed("Slow MS", 0.75f));
+            else StartCoroutine(fight_manager.ChangeSpeed("Boost MS", 0.75f));
+        }
+    }
+    #endregion
 
     #region Add Effects
     /// <summary>
@@ -297,9 +359,10 @@ public class UnitManager : MonoBehaviour
                 // Добавляем эффект "оглушения"
                 case "Stunned":
                     // Если юнит может быть оглушаемым и не оглушён, оглушаем его
-                    if (stun_particles != null && !fight_manager.isStunned)
+                    if (stun_particles != null && !fight_manager.IsStunned)
                     {
-                        fight_manager.isStunned = true; // Указываем что юнит "оглушён"
+                        CameraShake.instance.SmallShake(); // Трясём камеру
+                        fight_manager.IsStunned = true; // Указываем что юнит "оглушён"
                         animator.SetBool("stunned", true); // Включаем анимацию "оглушения"
                         stun_particles.SetActive(true); // Включаем частицы "оглушения"
                         StartCoroutine(fight_manager.EffectsTimer(code, time)); // Запускаем таймер отключения "оглушения"
@@ -333,9 +396,9 @@ public class UnitManager : MonoBehaviour
                 // Добавляем эффект "кровотечения"
                 case "Bleeding":
                     // Если юнит может "кровоточить" и сейчас "кровотечения" нет, включаем эффект
-                    if (canBleed && fight_manager.isBleeding == 0)
+                    if (canBleed && fight_manager.IsBleeding == 0)
                     {
-                        fight_manager.isBleeding = 20; // Кол-во тиков
+                        fight_manager.IsBleeding = 20; // Кол-во тиков
 
                         // Отнимаем 20% от максимального здоровья за ~4 секунды, урон идёт каждые 0.2 секунды (20 = 4 сек * 5 тиков/сек)
                         StartCoroutine(fight_manager.EffectsTimer(code, 0.2f, MaxHealth * 0.2f / 20));
@@ -348,9 +411,9 @@ public class UnitManager : MonoBehaviour
                 // Добавляем эффект "отравления"
                 case "Poisoned":
                     // Если юнит может "отравиться" и сейчас "отравления" нет, включаем эффект
-                    if (canPoisoned && fight_manager.isPoisoned == 0)
+                    if (canBePoisoned && fight_manager.IsPoisoned == 0)
                     {
-                        fight_manager.isPoisoned = 25; // Кол-во тиков
+                        fight_manager.IsPoisoned = 25; // Кол-во тиков
 
                         // Отнимаем 25% от максимального здоровья за ~5 секунд, урон идёт каждые 0.2 секунды (25 = 5 сек * 5 тиков/сек)
                         StartCoroutine(fight_manager.EffectsTimer(code, 0.2f, MaxHealth * 0.25f / 25));
@@ -369,39 +432,14 @@ public class UnitManager : MonoBehaviour
                     StartCoroutine(fight_manager.ChangeSpeed("Slow AS", time, value)); // Замедляем скорость атаки
                     break;
 
-                // После смерти превращаемся в "Обычного Зомби"
-                case "Zombie Virus":
-                    if (canInfected)
+                // После смерти превращаемся в "Зомби" / "Гигантского паука"
+                case "Virus":
+                    if (canBeInfected)
                     {
-                        IsInfectedByZombie = true;
-                        ChangeColor(code); // Меняем цвет на зеленоватый
+                        ChangeColor(VirusType.ToString()); // Меняем цвет на зеленоватый
                         StartCoroutine(fight_manager.EffectsTimer(code, time)); // Отключаем эффект через время
                         StartCoroutine(fight_manager.ChangeSpeed("Slow MS", time, value)); // Замедляем скорость передвижения
                         StartCoroutine(fight_manager.ChangeSpeed("Slow AS", time, value)); // Замедляем скорость атаки
-                    }
-                    break;
-
-                // После смерти превращаемся в "Обычного Зомби"
-                case "Frozen Zombie Virus":
-                    if (canInfected)
-                    {
-                        IsInfectedByFrozenZombie = true;
-                        StartCoroutine(fight_manager.EffectsTimer(code, time)); // Отключаем эффект через время
-                        StartCoroutine(fight_manager.ChangeSpeed("Slow MS", time, value)); // Замедляем скорость передвижения
-                        StartCoroutine(fight_manager.ChangeSpeed("Slow AS", time, value)); // Замедляем скорость атаки
-                        ChangeColor(code); // Меняем цвет на зелено-голубоватый
-                    }
-                    break;
-
-                // После смерти превращаемся в "Обычного Зомби"
-                case "Spider Virus":
-                    if (canInfected)
-                    {
-                        IsInfectedBySpider = true;
-                        StartCoroutine(fight_manager.EffectsTimer(code, time)); // Отключаем эффект через время
-                        StartCoroutine(fight_manager.ChangeSpeed("Slow MS", time, value)); // Замедляем скорость передвижения
-                        StartCoroutine(fight_manager.ChangeSpeed("Slow AS", time, value)); // Замедляем скорость атаки
-                        ChangeColor(code); // Меняем цвет на фиолетовый
                     }
                     break;
             }
@@ -409,14 +447,20 @@ public class UnitManager : MonoBehaviour
     }
     #endregion
 
+    #region Other
     // Устанавливаем базовые статы юнита
     private void PrepareBasicStats()
     {
         UnitClass = UnitData.unit_class;
         isMelee = UnitData.isMelee;
+        CanBePushed = UnitData.canBePushed;
+        dp_size = UnitData.death_particles_size;
+        shakeHits = UnitData.shakeHits;
+        shakeShoot = UnitData.shakeShoot;
         canBleed = UnitData.canBleed;
-        canPoisoned = UnitData.canPoisoned;
-        canInfected = UnitData.canInfected;
+        canBePoisoned = UnitData.canBePoisoned;
+        canBeInfected = UnitData.canBeInfected;
+        canAlwaysMove = UnitData.canAlwaysMove;
 
         audio_s.clip = UnitData.hit_sfx; // Звук удара/выстрела
         audio_s.volume = UnitData.hit_sfx_volume;
@@ -430,6 +474,13 @@ public class UnitManager : MonoBehaviour
         BasicAS = UnitData.attack_speed;
         AttackSpeed = BasicAS;
 
+        slow_strength = UnitData.slow_strength;
+        slow_frames = UnitData.slow_frames;
+        punch_strength = UnitData.punch_strength;
+        punch_chance = UnitData.punch_chance;
+
+        death_particles_colors = UnitData.GetColors();  // Записываем цвета частиц смерти
+
         // Если дальний бой, присваиваем снаряд
         if (!isMelee)
         {
@@ -440,8 +491,27 @@ public class UnitManager : MonoBehaviour
             {
                 BasicMS = 0;
                 MoveSpeed = 0;
+                Invoke("Destroy", 40);
+
+                GlobalData.SetInt(UnitClass, GlobalData.GetInt("Tinker"));
+
+                // Звук спавна
+                if (audio_manager.IsOn())
+                    audio_s.PlayOneShot(UnitData.spawn_sfx);
             }
         }
+
+        if (isAlly)
+        {
+            if (UnitClass == "Undead")
+                GlobalData.SetInt(UnitClass, GlobalData.GetInt("Necromancer"));
+
+            transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(1, 30));
+        }
+        else transform.position = new Vector3(transform.position.x, transform.position.y, Random.Range(-50, -1));
+
+        // Если может менять линии
+        if (UnitData.canSwapLanes) gameObject.AddComponent<UnitLaneSwap>().MoveSpeed = MoveSpeed;
 
         // Если противник, создаём компонент звука
         if (!isAlly && audio_manager.PlaySpawnSound())
@@ -479,19 +549,24 @@ public class UnitManager : MonoBehaviour
             MaxHealth = ClassicDifficultSystem.CalculateAllyStats(MaxHealth, unit_lvl);
             Health = MaxHealth;
 
-            // Если юнит тинкер, добавляем распознавание косаний
-            if (UnitClass == "Tinker")
-            {
-                turret = unit_wrapper.transform.GetChild(1).gameObject;
-                gameObject.AddComponent<UnitTouchEvents>().unit_class = UnitClass;
-            }
-
+            // Если юнит тинкер, записываем турель
+            if (UnitClass == "Tinker") turret = unit_wrapper.transform.GetChild(1).gameObject;
         }
         else
         {
-            Damage = ClassicDifficultSystem.CalculateEnemyStats(Damage) * 0.7f;
-            MaxHealth = ClassicDifficultSystem.CalculateEnemyStats(MaxHealth);
-            Health = MaxHealth;
+            if (ArenaManager.instance.isArenaOn)
+            {
+                //value* Mathf.Pow(wave_num + 10, 1.01f) * 0.085f;
+                Damage *= (Mathf.Pow(ArenaManager.instance.wave_num + 10, 1.01f) * 0.095f) * 0.7f;
+                MaxHealth *= Mathf.Pow(ArenaManager.instance.wave_num + 10, 1.01f) * 0.095f;
+                Health = MaxHealth;
+            }
+            else
+            {
+                Damage = ClassicDifficultSystem.CalculateEnemyStats(Damage) * 0.7f;
+                MaxHealth = ClassicDifficultSystem.CalculateEnemyStats(MaxHealth);
+                Health = MaxHealth;
+            }
         }
     }
 
@@ -502,17 +577,27 @@ public class UnitManager : MonoBehaviour
 
         switch (code)
         {
-            case "Zombie Virus":
+            case "1": // Обычный зомби
                 r = 186;
                 b = 173;
                 break;
 
-            case "Frozen Zombie Virus":
+            case "2": // Вирус Зимнего зомби
                 r = 173;
                 b = 217;
                 break;
 
-            case "Spider Virus":
+            case "3": // Пустынный зомби
+                r = 248;
+                b = 173;
+                break;
+
+            case "4": // Тёмный зомби
+                r = 225;
+                g = 182;
+                break;
+
+            case "5": // Вирус Гигантского паука
                 g = 172;
                 b = 177;
                 break;
@@ -533,17 +618,21 @@ public class UnitManager : MonoBehaviour
             }
         }
     }
+    #endregion
 
-    // [ DEATH ] ==========================================================
-
+    #region Death's
     // Убиваем юнита (от рук другого юнита/снаряда)
     public void Death()
     {
-        if (unit_wrapper.activeSelf)
+        if (!IsDead)
         {
+            // Частицы смерти
+            particles_manager.DeathParticles(dp_size, death_particles_colors, transform.position.x, transform.position.y + 0.7f);
+
             // Если вражеский юнит
             if (!isAlly)
             {
+                cam_shake.SmallShake(); // Дёргаем камеру
                 int gold, xp;
 
                 switch (UnitClass)
@@ -553,13 +642,31 @@ public class UnitManager : MonoBehaviour
                     case "Viper":
                     case "Minotaur":
                     case "Giant Spider":
-                        gold = Random.Range(2, 6);
-                        xp = Random.Range(8, 15);
+                        if (ClassicGenerator.instance.map_type != 4)
+                        {
+                            gold = Random.Range(2, 6);
+                            xp = Random.Range(9, 15);
+                        }
+                        else
+                        {
+                            gold = Random.Range(4, 8);
+                            xp = Random.Range(2, 8);
+                        }
                         break;
 
                     default:
-                        gold = Random.Range(1, 4);
-                        xp = Random.Range(6, 11);
+                        // Обычный режим
+                        if (ClassicGenerator.instance.map_type != 4)
+                        {
+                            gold = Random.Range(1, 4);
+                            xp = Random.Range(6, 11);
+                        }
+                        // Арена
+                        else
+                        {
+                            gold = Random.Range(3, 6);
+                            xp = Random.Range(1, 5);
+                        }
                         break;
                 }
                         
@@ -570,21 +677,13 @@ public class UnitManager : MonoBehaviour
             }
             else
             {
-                string virus_type = ""; // Тип вируса: zmb - Зомби, frzmb - Зимний Зомби, spr - Гигансткий паук
-
-                if (IsInfectedByZombie)
-                    virus_type = "zmb";
-                else if (IsInfectedByFrozenZombie)
-                    virus_type = "frzmb";
-                else if (IsInfectedBySpider)
-                    virus_type = "spr";
-
                 // Если есть вирус, создаём "паразитов"
-                if (virus_type != "") AdditionalUnitsSpawner.instance.SpawnUnit(virus_type, transform.position.x, transform.position.y);
+                if (VirusType > 0)
+                {
+                    AdditionalUnitsSpawner.instance.SpawnParasite(VirusType, transform.position.x, transform.position.y);
+                    particles_manager.SpawnParticles("Death", transform.position.x, transform.position.y + 0.35f);
+                }
             }
-
-            // Создаём частицы "смерти"
-            particles_manager.SpawnParticles(isAlly + " Death", transform.position.x, transform.position.y + 0.35f);
 
             DisableUnit(); // Отключаем и уничтожаем юнита
         }
@@ -593,10 +692,10 @@ public class UnitManager : MonoBehaviour
     // Убиваем юнита без записи в статистику и без эффектов (вирусы и тп.)
     public void Destroy()
     {
-        if (unit_wrapper.activeSelf)
+        if (!IsDead)
         {
             // Создаём частицы "смерти"
-            particles_manager.SpawnParticles(isAlly + " Death", transform.position.x, transform.position.y + 0.35f);
+            particles_manager.SpawnParticles("Death", transform.position.x, transform.position.y + 0.35f);
 
             DisableUnit(); // Отключаем и уничтожаем юнита
         }
@@ -605,7 +704,7 @@ public class UnitManager : MonoBehaviour
     // Убиваем юнита без частиц смерти, только частицы крови
     public void Execution()
     {
-        if (unit_wrapper.activeSelf)
+        if (!IsDead)
             DisableUnit(); // Отключаем и уничтожаем юнита
     }
 
@@ -613,18 +712,19 @@ public class UnitManager : MonoBehaviour
     private void DisableUnit()
     {
         MoveSpeed = 0;
-        unit_wrapper.SetActive(false); // Отключаем дочерний объект "содержащий" юнита
+        audio_manager.CheckDeathSound(isAlly); // Звук смерти юнита
         fight_manager.StopAllCoroutines();
-        fight_manager.isDead = true;
+        fight_manager.IsDead = true;
         fight_manager.enabled = false;
         IsDead = true;
         GetComponent<BoxCollider2D>().enabled = false; // Отключаем хит-бокс
 
+        Destroy(unit_wrapper);
         Destroy(gameObject, 4);
     }
+    #endregion
 
-    // [ TRIGGERS ] ==========================================================
-
+    #region Triggers
     private void OnTriggerEnter2D(Collider2D col)
     {
         // Если союзный юнит обнаружил вражеского юнита
@@ -681,4 +781,5 @@ public class UnitManager : MonoBehaviour
             enemy = null;
         }
     }
+    #endregion
 }

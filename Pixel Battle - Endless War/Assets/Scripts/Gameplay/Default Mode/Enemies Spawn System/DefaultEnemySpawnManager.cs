@@ -49,15 +49,8 @@ public class DefaultEnemySpawnManager : MonoBehaviour
     }
 
     // Создаём Бонусного юнита
-    public void SpawnBonusUnit(string unit_name, Vector2 spawn_position)
+    public void SpawnBonusUnit(Vector2 spawn_position)
     {
-        // Если юнит отличается от предыдущего
-        if (unit_name != bonus_unit)
-        {
-            bonus_unit = unit_name; // Записываем имя юнита для проверки
-            bonus_prefab = units_selector.GetBonusUnit(bonus_unit); // Записываем префаб юнита
-        }
-
-        Instantiate(bonus_prefab, spawn_position, Quaternion.identity, units_trashcan);
+        Instantiate(units_selector.GetBonusUnit(), spawn_position, Quaternion.identity, units_trashcan);
     }
 }

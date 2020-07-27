@@ -1,20 +1,23 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class ShellManager : MonoBehaviour
 {
     public int Health { get; set; } // Здоровье стрелы
+    public bool isAlly { get; set; }
+
+    [HideInInspector]
+    public int spike_id;
 
     private UnitManager
         shell_owner, // Владелец снаряда
         enemy; // Обнаруженный противник
 
     private string unit_class;
-    private float
-        shell_speed,
-        newX;
-
+    private float shell_speed, newX, newY;
     private int direction = 1;
-    private bool isAlly;
+    private bool
+        canHit = true; // Можем ли нанести урон цели (true - да)
 
     private void Start()
     {
@@ -27,8 +30,31 @@ public class ShellManager : MonoBehaviour
 
     private void Update()
     {
-        newX = Mathf.MoveTowards(transform.position.x, transform.position.x + direction, shell_speed * Time.deltaTime);
-        transform.position = new Vector2(newX, transform.position.y);
+        if (spike_id == 0)
+        {
+            newX = Mathf.MoveTowards(transform.position.x, transform.position.x + direction, shell_speed * Time.deltaTime);
+            transform.position = new Vector2(newX, transform.position.y);
+        }
+        else
+        {
+            if (spike_id == 1)
+            {
+                newX = Mathf.MoveTowards(transform.position.x, transform.position.x - 1, shell_speed * Time.deltaTime);
+                transform.position = new Vector2(newX, transform.position.y);
+            }
+            else if (spike_id == 2)
+            {
+                newY = Mathf.MoveTowards(transform.position.y, transform.position.y + 1, shell_speed * Time.deltaTime);
+                transform.position = new Vector2(transform.position.x, newY);
+                transform.rotation = Quaternion.Euler(0, 0, -90);
+            }
+            else
+            {
+                newX = Mathf.MoveTowards(transform.position.x, transform.position.x + 1, shell_speed * Time.deltaTime);
+                transform.position = new Vector2(newX, transform.position.y);
+                transform.rotation = Quaternion.Euler(0, 0, -180);
+            }
+        }
     }
 
     // Устанавливаем статы
@@ -70,6 +96,10 @@ public class ShellManager : MonoBehaviour
                 shell_speed = 13;
                 break;
 
+            case "Dark Slime":
+                shell_speed = 10;
+                break;
+
             default:
                 shell_speed = 15;
                 break;
@@ -78,33 +108,50 @@ public class ShellManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        // Если союзный снаряд обнаружил вражеского юнита
-        if (isAlly && col.CompareTag("Enemy"))
+        if (enemy == null && !isAlly && col.CompareTag("Shield") && canHit)
         {
-            enemy = col.GetComponent<UnitManager>(); // Кэшируем противника
+            Health = 0;
+            // Создаём частицы попадания снаряда
+            ParticlesManager.instance.SpawnParticles("Shell Hit",
+                col.transform.position.x + Random.Range(-0.25f, 0.2f),
+                col.transform.position.y + Random.Range(-0.05f, 0.45f));
 
-            // Проводим атаку
-            shell_owner.Attack(true, enemy);
-
-            Health--;
+            CameraShake.instance.SmallShake(); // Трясём камеру
             CheckDeath();
         }
 
-        // Если вражеский снаряд обнаружил союзного юнита
-        else if (!isAlly && col.CompareTag("Ally"))
+        // Если союзный снаряд обнаружил вражеского юнита
+        if (enemy == null && isAlly && col.CompareTag("Enemy") && canHit)
         {
             enemy = col.GetComponent<UnitManager>(); // Кэшируем противника
+            shell_owner.Attack(true, enemy); // Проводим атаку
+            Health--; // Отнимаем здоровье у снаряда
 
-            // Проводим атаку
-            shell_owner.Attack(true, enemy);
-
-            Health--;
             CheckDeath();
+            StartCoroutine(HitCD());
+        }
+
+        // Если вражеский снаряд обнаружил союзного юнита
+        else if (enemy == null && !isAlly && col.CompareTag("Ally") && canHit)
+        {
+            enemy = col.GetComponent<UnitManager>(); // Кэшируем противника
+            shell_owner.Attack(true, enemy); // Проводим атаку
+            Health--; // Отнимаем здоровье у снаряда
+
+            CheckDeath();
+            StartCoroutine(HitCD());
         }
     }
 
     private void CheckDeath()
     {
         if (Health <= 0) Destroy(gameObject);
+    }
+
+    private IEnumerator HitCD()
+    {
+        canHit = false;
+        yield return new WaitForSeconds(0.01f);
+        canHit = true;
     }
 }

@@ -14,6 +14,18 @@ TextureImporter:
   - first:
       213: 4867090637126018829
     second: bg_arena_detail
+  - first:
+      213: -3659124137682005828
+    second: arena_torch_1
+  - first:
+      213: -7419954169588042015
+    second: arena_torch_2
+  - first:
+      213: 6149106302768574396
+    second: arena_torch_3
+  - first:
+      213: -6183657131085257879
+    second: arena_torch_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -119,7 +131,7 @@ TextureImporter:
         width: 54
         height: 25
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -140,7 +152,7 @@ TextureImporter:
         width: 52
         height: 21
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -161,7 +173,7 @@ TextureImporter:
         width: 44
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -182,7 +194,7 @@ TextureImporter:
         width: 128
         height: 49
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -190,6 +202,90 @@ TextureImporter:
       bones: []
       spriteID: d07a683c5216b8340800000000000000
       internalID: 4867090637126018829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arena_torch_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 15
+        width: 6
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb01860dbfd283dc0800000000000000
+      internalID: -3659124137682005828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arena_torch_2
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 15
+        width: 6
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e6b600def6070990800000000000000
+      internalID: -7419954169588042015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arena_torch_3
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 15
+        width: 6
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbfe2ae5a93065550800000000000000
+      internalID: 6149106302768574396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: arena_torch_4
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 15
+        width: 6
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9632ad80a9c3f2aa0800000000000000
+      internalID: -6183657131085257879
       vertices: []
       indices: 
       edges: []

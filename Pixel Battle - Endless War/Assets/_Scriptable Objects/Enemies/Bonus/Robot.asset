@@ -1,0 +1,48 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9a5c97fdfdb2b944897d774b8bc11f6, type: 3}
+  m_Name: Robot
+  m_EditorClassIdentifier: 
+  unit_class: Robot
+  death_particles_size: 0
+  isMelee: 0
+  shakeHits: 0
+  shakeShoot: 1
+  canBleed: 0
+  canBePoisoned: 1
+  canBeInfected: 1
+  canAlwaysMove: 0
+  canSwapLanes: 0
+  shell_prefab: {fileID: 1453911951744916558, guid: cb1ec98c3576ca2488a6afa96a478950,
+    type: 3}
+  hit_sfx: {fileID: 8300000, guid: 92d758a400caf6f4abb5c1eb31f39d69, type: 3}
+  hit_sfx_volume: 0.255
+  hit_sfx_pitch: 1.54
+  spawn_sfx: {fileID: 8300000, guid: b14c0a1ed3b3328478474d883b6c6124, type: 3}
+  spawn_sfx_volume: 1
+  spawn_sfx_pitch: 1
+  health: 30
+  damage: 7
+  move_speed: 1.45
+  attack_speed: 0.7
+  slow_strength: 0.3
+  slow_frames: 2
+  punch_strength: 3
+  punch_chance: 10
+  dp_color1: {r: 0.43137258, g: 0.6313726, b: 0.7254902, a: 1}
+  dp_color2: {r: 0.26666668, g: 0.49411768, b: 0.58431375, a: 1}
+  dp_color3: {r: 0.9568628, g: 0.28627452, b: 0, a: 1}
+  Perks:
+  - PerkName: Damage Reduce
+    PerkChance: 0
+    PerkDuration: 0
+    PerkValue: 0.3

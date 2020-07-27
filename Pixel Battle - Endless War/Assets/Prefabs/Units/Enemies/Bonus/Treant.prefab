@@ -97,7 +97,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7822486163884093363}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.885943, y: -1.3023572, z: -21}
+  m_LocalPosition: {x: -3.885943, y: -1.3023572, z: 0}
   m_LocalScale: {x: 13, y: 13, z: 1}
   m_Children:
   - {fileID: 1765361337581219800}
@@ -138,6 +138,7 @@ MonoBehaviour:
   particles_manager: {fileID: 0}
   animator: {fileID: 0}
   turret: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!50 &8426480575720227576
 Rigidbody2D:
   serializedVersion: 4
@@ -150,7 +151,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 2
+  m_Mass: 3
   m_LinearDrag: 4
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -619,6 +620,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7822486165649680784}
   - component: {fileID: 7822486165649680785}
+  - component: {fileID: 2791945728028465360}
   m_Layer: 0
   m_Name: body
   m_TagString: BodyPart
@@ -691,6 +693,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &2791945728028465360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7822486165649680791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4a4dcbb25e09f4687995fb7eb02392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 3172724282272798986, guid: f8d00a6aaef4710408b5f73446e59c80, type: 3}
+  - {fileID: 5767419761461330153, guid: f8d00a6aaef4710408b5f73446e59c80, type: 3}
 --- !u!1 &7822486165871568057
 GameObject:
   m_ObjectHideFlags: 0
@@ -947,6 +964,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8527157325380222588}
   - component: {fileID: 8527157325380222591}
+  - component: {fileID: 8928693554645389474}
   m_Layer: 0
   m_Name: left_arm
   m_TagString: BodyPart
@@ -1019,6 +1037,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8928693554645389474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8527157325380222589}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f4a4dcbb25e09f4687995fb7eb02392, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: -6604228199528071024, guid: f8d00a6aaef4710408b5f73446e59c80, type: 3}
+  - {fileID: 8711312847194403698, guid: f8d00a6aaef4710408b5f73446e59c80, type: 3}
 --- !u!1 &8527157326299984293
 GameObject:
   m_ObjectHideFlags: 0

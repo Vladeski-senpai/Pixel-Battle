@@ -28,8 +28,8 @@ public class GuildScrollMenu : MonoBehaviour
 
         if (state < 0)
             state = 0;
-        else if (state > 2)
-            state = 2;
+        else if (state > 3)
+            state = 3;
 
         if (state == 0)
             currentY = startY;
@@ -38,6 +38,6 @@ public class GuildScrollMenu : MonoBehaviour
         else if (state == 2)
             currentY = startY * 3.65f;
         else if (state == 3)
-            currentY = startY * 5.8f;
+            currentY = startY * 4.95f;
     }
 }

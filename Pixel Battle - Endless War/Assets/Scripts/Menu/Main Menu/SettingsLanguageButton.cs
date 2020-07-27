@@ -6,6 +6,7 @@ public class SettingsLanguageButton : MonoBehaviour
     public Sprite[] sprites;
     public SettingsLanguageButton other_button;
 
+    private AudioSource audio_s;
     private Image image;
 
     private string language;
@@ -13,12 +14,16 @@ public class SettingsLanguageButton : MonoBehaviour
     private void Awake()
     {
         image = GetComponent<Image>();
+        audio_s = GetComponent<AudioSource>();
         GetComponent<Button>().onClick.AddListener(TaskOnClick);
         CheckButtonCondition();
     }
 
     private void TaskOnClick()
     {
+        // Звук нажатия
+        if (GlobalData.GetInt("Sound") != 0) audio_s.Play();
+
         switch (name.Substring(3))
         {
             case "English": if (language != "en") GlobalData.SetString("Language", "en"); break; // Меняем на Английский

@@ -194,6 +194,21 @@ TextureImporter:
   - first:
       213: 32467280618025143
     second: ui_menu_level_right_arrow
+  - first:
+      213: -1314706555255951541
+    second: ui_ally_hp_bar_bg
+  - first:
+      213: -8997055797703249258
+    second: ui_ally_hp_filler
+  - first:
+      213: -7098473104334777352
+    second: ui_ally_hp_filler_bg
+  - first:
+      213: 678331279239084645
+    second: ui_enemy_hp_bar_bg
+  - first:
+      213: 4445614102201904347
+    second: ui_enemy_hp_filler
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1496,7 +1511,7 @@ TextureImporter:
         width: 14
         height: 14
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1504,6 +1519,111 @@ TextureImporter:
       bones: []
       spriteID: 7b07f08d1d8537000800000000000000
       internalID: 32467280618025143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_ally_hp_bar_bg
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 486
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f67168a5931cde0800000000000000
+      internalID: -1314706555255951541
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_ally_hp_filler
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 482
+        width: 29
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6927781ab69042380800000000000000
+      internalID: -8997055797703249258
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_ally_hp_filler_bg
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 478
+        width: 31
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f3167822582d7d90800000000000000
+      internalID: -7098473104334777352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_enemy_hp_bar_bg
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 486
+        width: 41
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56af41b54bae96900800000000000000
+      internalID: 678331279239084645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ui_enemy_hp_filler
+      rect:
+        serializedVersion: 2
+        x: 416
+        y: 478
+        width: 29
+        height: 3
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdc263ad87ef1bd30800000000000000
+      internalID: 4445614102201904347
       vertices: []
       indices: 
       edges: []

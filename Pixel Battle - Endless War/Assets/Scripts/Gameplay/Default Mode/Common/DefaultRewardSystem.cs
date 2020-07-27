@@ -28,6 +28,7 @@ public class DefaultRewardSystem : MonoBehaviour
 
     private string language;
     private int 
+        start_lvl,
         enemies_killed_stats, // Кол-во убитых вражеских юнитов за раунд
         earned_gold_stats; // Кол-во заработанного золота за раунд
 
@@ -37,6 +38,7 @@ public class DefaultRewardSystem : MonoBehaviour
         victory_sound = transform.GetChild(0).gameObject;
         defeat_sound = transform.GetChild(1).gameObject;
         language = GlobalData.GetString("Language");
+        start_lvl = GlobalData.GetInt("CurrentLevel");
     }
 
     // Считаем награду за матч
@@ -60,7 +62,7 @@ public class DefaultRewardSystem : MonoBehaviour
             foreach (GameObject enemy in enemy_units)
             {
                 // Если юнит жив
-                if (!enemy.GetComponent<UnitManager>().IsDead)
+                if (enemy != null && !enemy.GetComponent<UnitManager>().IsDead)
                     enemy.GetComponent<UnitManager>().Destroy();
             }
 
@@ -99,18 +101,11 @@ public class DefaultRewardSystem : MonoBehaviour
             max_lvl++;
             GlobalData.SetInt("MaxLevel", max_lvl);
             GlobalData.SetInt("CurrentLevel", max_lvl);
-
-            // Активируем (покупаем) юнита Archer
-            if (current_lvl == 1 && GlobalData.GetInt("Archer") < 1) GlobalData.SetInt("Archer", 1);
         }
 
         // Даём гем только если пройденный уровень равен последним трём открытым
         if (current_lvl >= max_lvl - 3)
         {
-            // Если текущий уровень кратен 15, 100% даём гем
-            if (current_lvl % 15 == 0)
-                gem_chance = 100;
-
             // Если гем выпал
             if (Random.Range(0, 99) < gem_chance)
             {
@@ -153,9 +148,9 @@ public class DefaultRewardSystem : MonoBehaviour
         if (round_time < 100)
             return 5; // 10%
         else if (round_time > 100 && round_time < 180)
-            return 15; // 20%
+            return 10; // 20%
         else
-            return 20; // 30%
+            return 15; // 30%
     }
 
     // Таймер для различных задач
@@ -173,7 +168,7 @@ public class DefaultRewardSystem : MonoBehaviour
                 // Если язык русский
                 if (language == "ru")
                 {
-                    txt_title.text = "Уровень " + (GlobalData.GetInt("CurrentLevel") - 1) + " пройден!"; // Текст "Уровень № пройден!"
+                    txt_title.text = "Уровень " + start_lvl + " пройден!"; // Текст "Уровень № пройден!"
                     txt_enemies_killed.text = "Противников убито:  " + enemies_killed_stats; // Сколько убили за раунд
                     txt_health.text = "Здоровья осталось:  " + game_controller.AllyHealth + "%"; // Сколько здоровья осталось
                     txt_gold.text = "Золота получено:  " + earned_gold_stats; // Сколько золота заработали
@@ -218,42 +213,46 @@ public class DefaultRewardSystem : MonoBehaviour
                 // Если язык английский
                 else
                 {
-                    txt_title.text = "Level " + (GlobalData.GetInt("CurrentLevel") - 1) + " complete!"; // Текст "Уровень № пройден!"
-                    txt_enemies_killed.text = "Enemies defeated:  " + enemies_killed_stats; // Сколько убили за раунд
-                    txt_health.text = "Health remainig:  " + game_controller.AllyHealth + "%"; // Сколько здоровья осталось
-                    txt_gold.text = "Gold earned:  " + earned_gold_stats; // Сколько золота заработали
-                    txt_round_time.text = "Time:  " + Mathf.Round(game_controller.CurrentRoundTime) + "s";
-
-                    // Случайный комплимент
-                    switch (Random.Range(0, 7))
+                    // Если обычный режим игры
+                    if (GlobalData.GetInt("GameMode") != 4)
                     {
-                        case 0:
-                            txt_compliment.text = "Well done!";
-                            break;
+                        txt_title.text = "Level " + start_lvl + " complete!"; // Текст "Уровень № пройден!"
+                        txt_enemies_killed.text = "Enemies defeated:  " + enemies_killed_stats; // Сколько убили за раунд
+                        txt_health.text = "Health remainig:  " + game_controller.AllyHealth + "%"; // Сколько здоровья осталось
+                        txt_gold.text = "Gold earned:  " + earned_gold_stats; // Сколько золота заработали
+                        txt_round_time.text = "Time:  " + Mathf.Round(game_controller.CurrentRoundTime) + "s";
 
-                        case 1:
-                            txt_compliment.text = "Nice!";
-                            break;
+                        // Случайный комплимент
+                        switch (Random.Range(0, 7))
+                        {
+                            case 0:
+                                txt_compliment.text = "Well done!";
+                                break;
 
-                        case 2:
-                            txt_compliment.text = "Awesome!";
-                            break;
+                            case 1:
+                                txt_compliment.text = "Nice!";
+                                break;
 
-                        case 3:
-                            txt_compliment.text = "Good job!";
-                            break;
+                            case 2:
+                                txt_compliment.text = "Awesome!";
+                                break;
 
-                        case 4:
-                            txt_compliment.text = "Good fight!";
-                            break;
+                            case 3:
+                                txt_compliment.text = "Good job!";
+                                break;
 
-                        case 5:
-                            txt_compliment.text = "Well played!";
-                            break;
+                            case 4:
+                                txt_compliment.text = "Good fight!";
+                                break;
 
-                        case 6:
-                            txt_compliment.text = "Wonderful!";
-                            break;
+                            case 5:
+                                txt_compliment.text = "Well played!";
+                                break;
+
+                            case 6:
+                                txt_compliment.text = "Wonderful!";
+                                break;
+                        }
                     }
                 }
                 break;
@@ -261,20 +260,113 @@ public class DefaultRewardSystem : MonoBehaviour
             case "EndGameLost":
                 repeat_button.SetActive(true); // Загрузка этой же локации
 
-                txt_title.transform.localPosition = new Vector2(0, txt_title.transform.localPosition.y - 140);
+                // Если Обычный режим
+                if (GlobalData.GetInt("GameMode") != 1)
+                {
+                    txt_title.transform.localPosition = new Vector2(0, txt_title.transform.localPosition.y - 140);
 
-                // Если язык русский
-                if (language == "ru")
-                    txt_title.text = "Поражение.";
-                // Если язык английский
+                    // Если язык русский
+                    if (language == "ru")
+                        txt_title.text = "Поражение.";
+                    // Если язык английский
+                    else
+                        txt_title.text = "Game over.";
+
+                    txt_enemies_killed.text = "";
+                    txt_health.text = "";
+                    txt_gold.text = "";
+                    txt_round_time.text = "";
+                    txt_compliment.text = "";
+                }
+
+                // Если режим игры Арена
                 else
-                    txt_title.text = "Game over.";
+                {
+                    if (language == "ru")
+                    {
+                        txt_title.text = "Поражение.";
+                        txt_enemies_killed.text = "Противников убито:  " + enemies_killed_stats; // Сколько убили за раунд
+                        txt_gold.text = "Золота получено:  " + earned_gold_stats; // Сколько золота заработали
+                        txt_round_time.text = "Время:  " + Mathf.Round(game_controller.CurrentRoundTime) + "с";
+                        txt_health.text = "Волны:  " + ArenaManager.instance.wave_num;
 
-                txt_enemies_killed.text = "";
-                txt_health.text = "";
-                txt_gold.text = "";
-                txt_round_time.text = "";
-                txt_compliment.text = "";       
+                        // Случайный комплимент
+                        switch (Random.Range(0, 8))
+                        {
+                            case 0:
+                                txt_compliment.text = "Отлично!";
+                                break;
+
+                            case 1:
+                                txt_compliment.text = "Молодец!";
+                                break;
+
+                            case 2:
+                                txt_compliment.text = "Прекрасно!";
+                                break;
+
+                            case 3:
+                                txt_compliment.text = "Хорошая битва!";
+                                break;
+
+                            case 4:
+                                txt_compliment.text = "Превосходно!";
+                                break;
+
+                            case 5:
+                                txt_compliment.text = "Хорошая игра!";
+                                break;
+
+                            case 6:
+                                txt_compliment.text = "Замечательно!";
+                                break;
+
+                            case 7:
+                                txt_compliment.text = "Славная битва!";
+                                break;
+                        }
+                    }
+                    else
+                    {
+                        txt_title.text = "Game over.";
+                        txt_enemies_killed.text = "Enemies defeated:  " + enemies_killed_stats; // Сколько убили за раунд
+                        txt_gold.text = "Gold earned:  " + earned_gold_stats; // Сколько золота заработали
+                        txt_round_time.text = "Time:  " + Mathf.Round(game_controller.CurrentRoundTime) + "s";
+                        txt_health.text = "Waves:  " + ArenaManager.instance.wave_num;
+
+                        // Случайный комплимент
+                        switch (Random.Range(0, 7))
+                        {
+                            case 0:
+                                txt_compliment.text = "Well done!";
+                                break;
+
+                            case 1:
+                                txt_compliment.text = "Nice!";
+                                break;
+
+                            case 2:
+                                txt_compliment.text = "Awesome!";
+                                break;
+
+                            case 3:
+                                txt_compliment.text = "Good job!";
+                                break;
+
+                            case 4:
+                                txt_compliment.text = "Good fight!";
+                                break;
+
+                            case 5:
+                                txt_compliment.text = "Well played!";
+                                break;
+
+                            case 6:
+                                txt_compliment.text = "Wonderful!";
+                                break;
+                        }
+                    }
+                }
                 break;
         }
     }

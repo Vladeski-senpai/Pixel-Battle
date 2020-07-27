@@ -5,7 +5,15 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    private const int max_hits = 20; // Максимум звуков удара
+    public AudioClip
+        ally_death_clip,
+        enemy_death_clip;
+
+    public bool IsMuicOn { get; private set; }
+
+    private AudioSource audio_s;
+
+    private const int max_hits = 10; // Максимум звуков удара
     private const int max_deaths = 8; // Максимум звуков смерти
     private const int max_spawns = 10; // Максимум звуков спавна
     private const int max_value = 10; // Различные звуки
@@ -23,8 +31,10 @@ public class AudioManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        audio_s = GetComponent<AudioSource>();
 
         if (GlobalData.GetInt("Sound") != 0) isOn = true;
+        if (GlobalData.GetInt("Music") != 0) IsMuicOn = true;
     }
 
     // Проверяем можем ли запустить звук удара/выстрела
@@ -40,15 +50,28 @@ public class AudioManager : MonoBehaviour
     }
 
     // Проверяем можем ли запустить звук смерти
-    public bool PlayDeathSound()
+    public void CheckDeathSound(bool isAlly)
     {
         if (isOn && current_deaths < max_deaths)
         {
             StartCoroutine(RemoveSound(1)); // Удаляем звук смерти
             current_deaths++;
-            return true;
+
+            if (isAlly) PlayAllyDeath();
+            else PlayEnemyDeath();
         }
-        else return false;
+    }
+
+    // Играем звук смерти союзного юнита
+    public void PlayAllyDeath()
+    {
+        audio_s.PlayOneShot(ally_death_clip);
+    }
+
+    // Играем звук смерти вражеского юнита
+    public void PlayEnemyDeath()
+    {
+        audio_s.PlayOneShot(enemy_death_clip);
     }
 
     // Проверяем можем ли запустить звук спавна

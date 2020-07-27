@@ -222,6 +222,15 @@ public class DefaultUnitButton : MonoBehaviour
                 i = 11;
                 break;
 
+            case "Shieldman":
+                size_h = 100;
+                scale_x = 0.95f;
+                scale_y = 0.95f;
+                pos_x = -5.8f;
+                pos_y = 22.45f;
+                i = 12;
+                break;
+
             default:
                 size_w = 0;
                 size_h = 0;
@@ -266,20 +275,21 @@ public class DefaultUnitButton : MonoBehaviour
             case "Ninja":
                 return 15;
 
-            case "Gunslinger":
             case "Paladin":
+            case "Gunslinger":
             case "Steel Bat":
-                return 17;
+                return 20;
 
             case "Elf Maiden":
-                return 20;
+            case "Shieldman":
+                return 18;
 
             case "Necromancer":
             case "Tinker":
-                return 25;
+                return 22;
 
             case "Dark Knight":
-                return 30;
+                return 26;
 
             default:
                 return 0;

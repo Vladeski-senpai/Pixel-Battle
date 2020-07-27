@@ -7,6 +7,10 @@ public class SettingsSoundButton : MonoBehaviour
 
     private Image image;
     private Text txt;
+    private AudioClip clip;
+    private AudioSource 
+        audio_s,
+        music_obj;
 
     private int value;
 
@@ -14,36 +18,37 @@ public class SettingsSoundButton : MonoBehaviour
     {
         GetComponent<Button>().onClick.AddListener(TaskOnClick);
         image = GetComponent<Image>();
+        audio_s = GetComponent<AudioSource>();
+        clip = audio_s.clip;
         txt = transform.GetChild(0).GetComponent<Text>();
 
         CheckButtonCondition();
     }
 
+    private void Start()
+    {
+        if (name.Substring(3) == "Music")
+            music_obj = GameObject.FindGameObjectWithTag("SoundManager").GetComponent<AudioSource>();
+    }
+
     private void TaskOnClick()
     {
-        switch (name.Substring(3))
-        {
-            case "Music":
-                // Если музыка выключена, включаем её
-                if (value == 0)
-                    GlobalData.SetInt("Music", 1);
-                else
-                    GlobalData.SetInt("Music", 0);
-                break;
-
-            case "Sound":
-                // Если звуки выключены, включаем их
-                if (value == 0)
-                    GlobalData.SetInt("Sound", 1);
-                else
-                    GlobalData.SetInt("Sound", 0);
-                break;
-        }
+        if (GlobalData.GetInt("Sound") != 0) audio_s.PlayOneShot(clip);
 
         if (value == 0)
+        {
             GlobalData.SetInt(name.Substring(3), 1);
+
+            // Включаем музыку
+            if (name.Substring(3) == "Music") music_obj.Play();
+        }
         else
+        {
             GlobalData.SetInt(name.Substring(3), 0);
+
+            // Выключаем музыку
+            if (name.Substring(3) == "Music") music_obj.Stop();
+        }
 
         CheckButtonCondition();
     }

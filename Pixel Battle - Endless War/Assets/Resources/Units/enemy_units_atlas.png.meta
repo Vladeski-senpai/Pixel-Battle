@@ -247,16 +247,16 @@ TextureImporter:
     second: slime_4
   - first:
       213: 3172724282272798986
-    second: trent_body_1
+    second: treant_body_1
   - first:
       213: 5767419761461330153
-    second: trent_body_2
+    second: treant_body_2
   - first:
       213: -6604228199528071024
-    second: trent_arm_1
+    second: treant_arm_1
   - first:
       213: 8711312847194403698
-    second: trent_arm_2
+    second: treant_arm_2
   - first:
       213: -4066414037292784632
     second: snake_head
@@ -335,6 +335,216 @@ TextureImporter:
   - first:
       213: 673766940267304614
     second: dark_zombie_arm
+  - first:
+      213: -331962140922885768
+    second: yeti_club_1
+  - first:
+      213: 6150859226819628746
+    second: yeti_club_2
+  - first:
+      213: 4738335965198036793
+    second: yeti_leg
+  - first:
+      213: 8287385500260990253
+    second: evil_ice_mage_head
+  - first:
+      213: 1892075500688853554
+    second: evil_ice_mage_body
+  - first:
+      213: 5906672073036013590
+    second: evil_ice_mage_weapon
+  - first:
+      213: 7878635319714411977
+    second: ice_slime_1
+  - first:
+      213: -4581335647171769179
+    second: ice_slime_2
+  - first:
+      213: 6318621141211071564
+    second: ice_slime_3
+  - first:
+      213: 3941090969606101986
+    second: ice_slime_4
+  - first:
+      213: -3931454535762855269
+    second: dark_slime_1
+  - first:
+      213: 609265242059429819
+    second: dark_slime_2
+  - first:
+      213: -4575381089863204539
+    second: dark_slime_3
+  - first:
+      213: 1810855333339797433
+    second: dark_slime_4
+  - first:
+      213: 9103370767883642348
+    second: dark_treant_body_1
+  - first:
+      213: -8128729299430661193
+    second: dark_treant_body_2
+  - first:
+      213: -481204433925902666
+    second: dark_treant_arm_1
+  - first:
+      213: 1524648610722895204
+    second: dark_treant_arm_2
+  - first:
+      213: -4903519933593721870
+    second: dark_treant_arm_3
+  - first:
+      213: -4516976810779775001
+    second: dark_treant_arm_4
+  - first:
+      213: -8971633203691660791
+    second: centaur_body
+  - first:
+      213: 889778523305632007
+    second: centaur_head
+  - first:
+      213: 3894155240172629955
+    second: centaur_back_leg
+  - first:
+      213: 3683905721044118646
+    second: centaur_front_leg
+  - first:
+      213: -2745624453686948940
+    second: centaur_arm_1
+  - first:
+      213: -7378163139487722156
+    second: centaur_arm_2
+  - first:
+      213: -1682118208378422212
+    second: centaur_tail
+  - first:
+      213: -5433250386607435216
+    second: orc_body
+  - first:
+      213: -93735523690357646
+    second: orc_head
+  - first:
+      213: -4417811774963515869
+    second: orc_leg
+  - first:
+      213: -3579871113098074287
+    second: orc_weapon
+  - first:
+      213: -1253970941148861336
+    second: big_ghost_body_1
+  - first:
+      213: 65867677305936203
+    second: small_ghost_head
+  - first:
+      213: -982494417747016221
+    second: small_ghost_body
+  - first:
+      213: 8766944082837238133
+    second: small_ghost_arms
+  - first:
+      213: 2411866754235729342
+    second: small_ghost_arm_2
+  - first:
+      213: -3387248559321256205
+    second: goblin_spearman_head
+  - first:
+      213: -5159031031892079712
+    second: goblin_spearman_body
+  - first:
+      213: -6871151518196036826
+    second: goblin_spearman_legs
+  - first:
+      213: -5486431124526139847
+    second: spear_1
+  - first:
+      213: -7259732814641790538
+    second: spear_2
+  - first:
+      213: 1938249295332806625
+    second: spear_3
+  - first:
+      213: 7852057744958516385
+    second: spear_4
+  - first:
+      213: -6578925876661892465
+    second: spearman_head
+  - first:
+      213: 4204834170547553380
+    second: spearman_body_1
+  - first:
+      213: -8298394985921416831
+    second: spearman_body_2
+  - first:
+      213: 9200574105641956783
+    second: spearman_legs_2
+  - first:
+      213: 2502094107602644941
+    second: spearman_legs_1
+  - first:
+      213: 5294981142579808927
+    second: big_ghost_body_2
+  - first:
+      213: 1542987325687371897
+    second: small_robot_head
+  - first:
+      213: 5500553381406063267
+    second: small_robot_body
+  - first:
+      213: -4387405652460616957
+    second: small_robot_legs
+  - first:
+      213: -6482997632921802297
+    second: small_robot_arm
+  - first:
+      213: -2028636872098727264
+    second: robot_laser
+  - first:
+      213: -3173083888842692332
+    second: big_robot_head
+  - first:
+      213: -7011572174856819380
+    second: big_robot_body
+  - first:
+      213: 5178163702849074948
+    second: big_robot_arm
+  - first:
+      213: -8338850449662407734
+    second: big_robot_leg
+  - first:
+      213: 6698262803405003539
+    second: centaur_tail_1
+  - first:
+      213: -1742224962810377470
+    second: centaur_tail_1
+  - first:
+      213: 6698262803405003539
+    second: centaur_tail_3
+  - first:
+      213: -1682118208378422212
+    second: centaur_tail_2
+  - first:
+      213: 7112514967461943740
+    second: centaur_tail_4
+  - first:
+      213: 2411866754235729342
+    second: snake_teeth
+  - first:
+      213: -8044174942317122034
+    second: orc_arm
+  - first:
+      213: 5308030269010231481
+    second: evil_mage_head
+  - first:
+      213: -1559186074598552835
+    second: evil_mage_staff
+  - first:
+      213: 2559770065078102985
+    second: evil_mage_body
+  - first:
+      213: -1682118208378422212
+    second: slime_spike
+  - first:
+      213: -1742224962810377470
+    second: snake_shell
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -418,7 +628,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 128
+    maxTextureSize: 256
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -2112,7 +2322,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trent_body_1
+      name: treant_body_1
       rect:
         serializedVersion: 2
         x: 0
@@ -2133,7 +2343,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trent_body_2
+      name: treant_body_2
       rect:
         serializedVersion: 2
         x: 8
@@ -2154,7 +2364,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trent_arm_1
+      name: treant_arm_1
       rect:
         serializedVersion: 2
         x: 16
@@ -2175,7 +2385,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: trent_arm_2
+      name: treant_arm_2
       rect:
         serializedVersion: 2
         x: 16
@@ -2243,8 +2453,8 @@ TextureImporter:
         serializedVersion: 2
         x: 34
         y: 75
-        width: 4
-        height: 6
+        width: 2
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2582,7 +2792,7 @@ TextureImporter:
         width: 9
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2603,7 +2813,7 @@ TextureImporter:
         width: 4
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2624,7 +2834,7 @@ TextureImporter:
         width: 4
         height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2645,7 +2855,7 @@ TextureImporter:
         width: 3
         height: 1
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2666,7 +2876,7 @@ TextureImporter:
         width: 9
         height: 8
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2687,7 +2897,7 @@ TextureImporter:
         width: 4
         height: 3
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2708,7 +2918,7 @@ TextureImporter:
         width: 4
         height: 2
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2729,7 +2939,7 @@ TextureImporter:
         width: 3
         height: 1
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -2737,6 +2947,1329 @@ TextureImporter:
       bones: []
       spriteID: 6a6d8006673b95900800000000000000
       internalID: 673766940267304614
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yeti_club_1
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 75
+        width: 25
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 879c96f0132a46bf0800000000000000
+      internalID: -331962140922885768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yeti_club_2
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 75
+        width: 25
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ace840ec0ed3c5550800000000000000
+      internalID: 6150859226819628746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: yeti_leg
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 78
+        width: 4
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93f2610a473f1c140800000000000000
+      internalID: 4738335965198036793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: evil_ice_mage_head
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 84
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2d77cb3435b20370800000000000000
+      internalID: 8287385500260990253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: evil_ice_mage_body
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 88
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23a47caa4a0024a10800000000000000
+      internalID: 1892075500688853554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: evil_ice_mage_weapon
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 84
+        width: 3
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 610280e94f6b8f150800000000000000
+      internalID: 5906672073036013590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_slime_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 10
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c57c6a9419865d60800000000000000
+      internalID: 7878635319714411977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_slime_2
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 10
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ac0e797083db60c0800000000000000
+      internalID: -4581335647171769179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_slime_3
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 10
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c44c820537040b750800000000000000
+      internalID: 6318621141211071564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ice_slime_4
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 10
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2eb1fd62b5191b630800000000000000
+      internalID: 3941090969606101986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_slime_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 20
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9ab141fdeaa079c0800000000000000
+      internalID: -3931454535762855269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_slime_2
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 20
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb7d1f6728b847800800000000000000
+      internalID: 609265242059429819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_slime_3
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 20
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5410aa2e32bf080c0800000000000000
+      internalID: -4575381089863204539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_slime_4
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 20
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b71753d453712910800000000000000
+      internalID: 1810855333339797433
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_treant_body_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 63
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce5216e4b7ba55e70800000000000000
+      internalID: 9103370767883642348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_treant_body_2
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 63
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b3202025c3f03f80800000000000000
+      internalID: -8128729299430661193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_treant_arm_1
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 70
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bee08bed1b6259f0800000000000000
+      internalID: -481204433925902666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_treant_arm_2
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 66
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4655e6165d3a82510800000000000000
+      internalID: 1524648610722895204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_treant_arm_3
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 70
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f36911b99233fbb0800000000000000
+      internalID: -4903519933593721870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dark_treant_arm_4
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 66
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ef6bc6c5897051c0800000000000000
+      internalID: -4516976810779775001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur_body
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 54
+        width: 12
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90adbde822b5e7380800000000000000
+      internalID: -8971633203691660791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur_head
+      rect:
+        serializedVersion: 2
+        x: 88
+        y: 57
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 701676a4ad0295c00800000000000000
+      internalID: 889778523305632007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur_back_leg
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 47
+        width: 3
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cf27be0f81da0630800000000000000
+      internalID: 3894155240172629955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur_front_leg
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 47
+        width: 3
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c2dd03cbcdf1330800000000000000
+      internalID: 3683905721044118646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur_arm_1
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 50
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4bb0d573b1595e9d0800000000000000
+      internalID: -2745624453686948940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: centaur_arm_2
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 46
+        width: 3
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45514ff37bf7b9990800000000000000
+      internalID: -7378163139487722156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_body
+      rect:
+        serializedVersion: 2
+        x: 87
+        y: 50
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 032928a5f873994b0800000000000000
+      internalID: -5433250386607435216
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_head
+      rect:
+        serializedVersion: 2
+        x: 97
+        y: 49
+        width: 10
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27cd99fa90cf2bef0800000000000000
+      internalID: -93735523690357646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_leg
+      rect:
+        serializedVersion: 2
+        x: 86
+        y: 46
+        width: 2
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32ef2c4e897c0b2c0800000000000000
+      internalID: -4417811774963515869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_weapon
+      rect:
+        serializedVersion: 2
+        x: 108
+        y: 45
+        width: 5
+        height: 11
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1576b1a803eb15ec0800000000000000
+      internalID: -3579871113098074287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_ghost_body_1
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 57
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86ce826a210099ee0800000000000000
+      internalID: -1253970941148861336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_ghost_head
+      rect:
+        serializedVersion: 2
+        x: 116
+        y: 68
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b491004bd420ae000800000000000000
+      internalID: 65867677305936203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_ghost_body
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 61
+        width: 6
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e58264588a7d52f0800000000000000
+      internalID: -982494417747016221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_ghost_arms
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 63
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 571f93fa1317aa970800000000000000
+      internalID: 8766944082837238133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_spearman_head
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 53
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fee3b7b1631ef0d0800000000000000
+      internalID: -3387248559321256205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_spearman_body
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 58
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ab0bd63c907768b0800000000000000
+      internalID: -5159031031892079712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: goblin_spearman_legs
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 55
+        width: 4
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62b0a006914c4a0a0800000000000000
+      internalID: -6871151518196036826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spear_1
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 44
+        width: 3
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 936f8f9e5f74cd3b0800000000000000
+      internalID: -5486431124526139847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spear_2
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 44
+        width: 3
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b18703087f304b90800000000000000
+      internalID: -7259732814641790538
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spear_3
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 44
+        width: 3
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ef867ef67b06ea10800000000000000
+      internalID: 1938249295332806625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spear_4
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 44
+        width: 3
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ac6b14caec18fc60800000000000000
+      internalID: 7852057744958516385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spearman_head
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 44
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8a41f595c5f2b4a0800000000000000
+      internalID: -6578925876661892465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spearman_body_1
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 51
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46449e266629a5a30800000000000000
+      internalID: 4204834170547553380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spearman_body_2
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 44
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18175422abd26dc80800000000000000
+      internalID: -8298394985921416831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spearman_legs_2
+      rect:
+        serializedVersion: 2
+        x: 53
+        y: 48
+        width: 4
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa5327007610faf70800000000000000
+      internalID: 9200574105641956783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: spearman_legs_1
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 61
+        width: 4
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcfe04e855939b220800000000000000
+      internalID: 2502094107602644941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_ghost_body_2
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 28
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9a8cdf8b4d8b7940800000000000000
+      internalID: 5294981142579808927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_robot_head
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 31
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97896803ccac96510800000000000000
+      internalID: 1542987325687371897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_robot_body
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 31
+        width: 4
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3aa38ce3824e55c40800000000000000
+      internalID: 5500553381406063267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_robot_legs
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 32
+        width: 4
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3034b87fdcdcc13c0800000000000000
+      internalID: -4387405652460616957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small_robot_arm
+      rect:
+        serializedVersion: 2
+        x: 66
+        y: 33
+        width: 3
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c96ff15004c706a0800000000000000
+      internalID: -6482997632921802297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: robot_laser
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 30
+        width: 5
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aabb445385d8d3e0800000000000000
+      internalID: -2028636872098727264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_robot_head
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 51
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419240bc301f6f3d0800000000000000
+      internalID: -3173083888842692332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_robot_body
+      rect:
+        serializedVersion: 2
+        x: 114
+        y: 46
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4d65a08144e1be90800000000000000
+      internalID: -7011572174856819380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_robot_arm
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 46
+        width: 3
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 407f321e3788cd740800000000000000
+      internalID: 5178163702849074948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: big_robot_leg
+      rect:
+        serializedVersion: 2
+        x: 125
+        y: 47
+        width: 2
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: acb04c872b3764c80800000000000000
+      internalID: -8338850449662407734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snake_teeth
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 73
+        width: 1
+        height: 1
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb58bcbc80ca87120800000000000000
+      internalID: 2411866754235729342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: orc_arm
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 46
+        width: 2
+        height: 2
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0ee61482895d5090800000000000000
+      internalID: -8044174942317122034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: evil_mage_head
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 31
+        width: 13
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b040611869e9a940800000000000000
+      internalID: 5308030269010231481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: evil_mage_staff
+      rect:
+        serializedVersion: 2
+        x: 103
+        y: 29
+        width: 3
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfa41dca688ac5ae0800000000000000
+      internalID: -1559186074598552835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: evil_mage_body
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 38
+        width: 6
+        height: 4
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9cba8abdf41268320800000000000000
+      internalID: 2559770065078102985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: slime_spike
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 34
+        width: 5
+        height: 3
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3c3367d66ae7a8e0800000000000000
+      internalID: -1682118208378422212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: snake_shell
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 117
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20b8ed480af52d7e0800000000000000
+      internalID: -1742224962810377470
       vertices: []
       indices: 
       edges: []

@@ -4,6 +4,8 @@ public class DefaultAllySpawnManager : MonoBehaviour
 {
     public Transform units_trashcan; // Мусорка для юнитов
 
+    public ClassicGenerator enemy_generator;
+
     [Header("Ally Units Store")]
     public GameObject[] AllyUnits; // Обычный тип юнитов
 
@@ -18,10 +20,12 @@ public class DefaultAllySpawnManager : MonoBehaviour
     }
 
     // Создаём союзного юнита
-    public void SpawnUnit(Vector2 spawn_position)
+    public void SpawnUnit(Vector2 spawn_position, byte lane_id)
     {
         unit_prefab = Instantiate(GetAllyUnit(), spawn_position, Quaternion.identity, units_trashcan) as GameObject;
         unit_prefab.name = choosed_unit;
+
+        enemy_generator.AddSpawnChance(lane_id);
     }
 
     // Берём нужный префаб юнита

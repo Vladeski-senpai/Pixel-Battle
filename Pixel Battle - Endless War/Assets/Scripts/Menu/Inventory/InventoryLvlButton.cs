@@ -1,10 +1,9 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class InventoryLvlButton : MonoBehaviour
 {
-    public Text txt_lvl_num;
+    //public Text txt_lvl_num;
 
     private InventoryManager inventory_manager;
     private AudioSource audio_s;

@@ -41,7 +41,7 @@ public class GuildScrollButton : MonoBehaviour
         }
         else
         {
-            if (scroll_menu.state == 2)
+            if (scroll_menu.state == 3)
             {
                 isActive = false;
                 image.color = new Color32(100, 100, 100, 255);

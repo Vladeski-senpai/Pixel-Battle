@@ -28,7 +28,6 @@ public class DefaultMenuButtons : MonoBehaviour
         switch (name.Substring(3))
         {
             case "Pause":
-                //some_obj[0]; //Music obj
                 StartCoroutine(Timer("Pause", 0.1f));
                 break;
 
@@ -64,14 +63,16 @@ public class DefaultMenuButtons : MonoBehaviour
         {
             case "Pause":
                 some_obj[0].SetActive(true);
-                some_obj[1].GetComponent<AudioSource>().Pause(); // Ставим музыку на паузу
+
+                if (AudioManager.instance.IsMuicOn)
+                    some_obj[1].GetComponent<AudioSource>().Pause(); // Ставим музыку на паузу
                 Time.timeScale = 0;
                 break;
 
             case "Resume":
                 some_obj[0].SetActive(false);
 
-                if (AudioManager.instance.IsOn())
+                if (AudioManager.instance.IsMuicOn)
                     some_obj[1].GetComponent<AudioSource>().Play(); // Возобновляем музыку
                 break;
         }

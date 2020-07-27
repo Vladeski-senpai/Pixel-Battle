@@ -11,7 +11,8 @@ public class GuildManager : MonoBehaviour
     public GameObject menu; // Меню покупки/апгрейда
     public GameObject
         menu_gold_obj,
-        menu_gems_obj;
+        menu_gems_obj,
+        purchase_button_obj;
 
     public Text
         txt_gold_cost, // Стоимость покупки в золоте
@@ -31,6 +32,8 @@ public class GuildManager : MonoBehaviour
     public MenuGoldAndGemsInfo money_info; // Текст золота и гемов в меню
     
     public string ChoosedUnit { get; private set; }
+    public string Language { get; private set; }
+    public int PlayerLevel { get; private set; }
 
     [HideInInspector]
     public int unit_lvl;
@@ -41,6 +44,7 @@ public class GuildManager : MonoBehaviour
     private GuildUnitButton unit_button;
     private GameObject big_avatar; // Аватар юнита в меню покупки/апгрейда
     private AudioSource audio_s;
+    private GuildTakeUnitStats units_stats;
 
     private bool isOn;
     #endregion
@@ -51,6 +55,10 @@ public class GuildManager : MonoBehaviour
         money_info = GetComponent<MenuGoldAndGemsInfo>();
         unit_info = GetComponent<GuildUnitInfo>();
         audio_s = GetComponent<AudioSource>();
+        units_stats = GetComponent<GuildTakeUnitStats>();
+
+        Language = GlobalData.GetString("Language");
+        PlayerLevel = GlobalData.GetInt("PlayerLvl");
 
         if (GlobalData.GetInt("Sound") != 0) isOn = true;
     }
@@ -87,7 +95,7 @@ public class GuildManager : MonoBehaviour
     {
         if (unit_lvl > 0)
         {
-            txt_menu_title.text = "Upgrade:";
+            txt_menu_title.text = GlobalTranslateSystem.TranslateShortText("Upgrade") + ":";
             txt_unit_name.text = ChoosedUnit + "\n" + "Lvl " + unit_lvl;
             txt_current_gems.text = GlobalData.GetInt("Gems") + " -";
             txt_gems_cost.text = unit_lvl.ToString(); // Стоимость апгрейда
@@ -97,8 +105,8 @@ public class GuildManager : MonoBehaviour
         }
         else
         {
-            txt_menu_title.text = "Purchase:";
-            txt_unit_name.text = ChoosedUnit + "\n" + "Locked.";
+            txt_menu_title.text = GlobalTranslateSystem.TranslateShortText("Purchase") + ":";
+            txt_unit_name.text = ChoosedUnit + "\n" + GlobalTranslateSystem.TranslateShortText("Locked") + ".";
             txt_gold_cost.text = GetUnitGoldCost().ToString(); // Стоимость покупки
 
             menu_gold_obj.SetActive(true);
@@ -107,10 +115,22 @@ public class GuildManager : MonoBehaviour
 
         txt_unit_info.text = unit_info.GetUnitHistory(); // История юнита
         txt_unit_perks.text = unit_info.GetUnitPerks(); // Перки юнита
+
+        txt_unit_stats.text = "HP  " + GetStats(true, unit_lvl) + "  ->  " + GetStats(true, unit_lvl + 1) +
+            "\n" + "DMG  " + GetStats(false, unit_lvl) + "  ->  " + GetStats(false, unit_lvl + 1);
+    }
+
+    // Возвраем статы юнита
+    private int GetStats(bool isHP, int lvl)
+    {
+        if (isHP)
+            return (int)ClassicDifficultSystem.CalculateAllyStatsGuild(units_stats.GetUnitHP(ChoosedUnit), lvl);
+        else
+            return (int)ClassicDifficultSystem.CalculateAllyStatsGuild(units_stats.GetUnitDMG(ChoosedUnit), lvl);
     }
 
     // Открываем меню и записываем выбранного юнита
-    public void OpenMenu(string unit_name, int unit_lvl, GameObject big_avatar, GuildUnitButton unit_button)
+    public void OpenMenu(string unit_name, int unit_lvl, bool isUnlocked, GameObject big_avatar, GuildUnitButton unit_button)
     {
         // Если новый юнит
         if (unit_name != ChoosedUnit)
@@ -119,6 +139,9 @@ public class GuildManager : MonoBehaviour
             this.big_avatar = big_avatar;
             this.unit_button = unit_button;
         }
+
+        if (isUnlocked) purchase_button_obj.SetActive(true);
+        else purchase_button_obj.SetActive(false);
 
         // Звук нажатия кнопки
         if (isOn) audio_s.Play();
@@ -146,38 +169,46 @@ public class GuildManager : MonoBehaviour
     {
         switch (code)
         {
-            case "Thief":
-                return 2000;
+            case "Archer": return 1500;
+            case "Thief": return 2500;
+            case "Knight": return 3500;
+            case "Ninja": return 5500;
+            case "Paladin": return 9500;
+            case "Necromancer": return 7500;
+            case "Elf Maiden": return 8500;
+            case "Gunslinger": return 9500;
+            case "Dark Knight": return 11500;
+            case "Steel Bat": return 9000;
+            case "Tinker": return 9500;
+            case "Shieldman": return 10000;
+            case "Megumi": return 11000;
 
-            case "Knight":
-                return 2000;
+            default: return 0;
+        }
+    }
 
-            case "Ninja":
-                return 5000;
+    // Возвращаем нужный уровень для покупки юнита
+    public int GetUnitRequiredLvl(string code)
+    {
+        switch (code)
+        {
+            case "Warrior": return 0;
+            case "Archer": return 5;
+            case "Thief": return 8;
+            case "Knight": return 11;
+            case "Ninja": return 15;
+            case "Shieldman": return 17;
+            case "Paladin": return 19;
+            case "Elf Maiden": return 22;
+            case "Necromancer": return 24;
+            case "Tinker": return 26;
+            case "Steel Bat": return 28;
+            case "Gunslinger": return 30;
+            case "Dark Knight": return 33;
 
-            case "Paladin":
-                return 4500;
+            case "Megumi": return 100;
 
-            case "Necromancer":
-                return 7500;
-
-            case "Elf Maiden":
-                return 7500;
-
-            case "Gunslinger":
-                return 8000;
-
-            case "Dark Knight":
-                return 9500;
-
-            case "Steel Bat":
-                return 8000;
-
-            case "Tinker":
-                return 9500;
-
-            default:
-                return 0;
+            default: return 0;
         }
     }
 }

@@ -21,13 +21,14 @@ public class PlayerLvlInfo : MonoBehaviour
         new_xp = (int)CalculatePlayerXP();
         slider.maxValue = new_xp;
         slider.value = current_xp;
-        txt_player_lvl.text = "Player Level: " + player_lvl;
+
+        txt_player_lvl.text = GlobalTranslateSystem.TranslateShortText("Player Level:") + " " + player_lvl;
         txt_player_xp.text = "XP " + current_xp + " / " + new_xp;
     }
 
     // Возвращаем значения опыта *игрока* нужного для перехода на следующий уровень
     public float CalculatePlayerXP()
     {
-        return 100 * Mathf.Pow(player_lvl, 1.1f); // player_basix_xp = 100, player_exponent = 1.1
+        return 100 * Mathf.Pow(player_lvl, 1.4f); // player_basix_xp = 100, player_exponent = 1.1
     }
 }

@@ -120,9 +120,19 @@ public class GuildUnitInfo : MonoBehaviour
             case "Tinker":
                 // Если язык русский
                 if (language == "ru")
-                    return "Безумный изобретатель.";
+                    return "Гениальный изобретатель, использующий свои технологии в битве. Нажмите на него во время битвы, " +
+                        "чтобы создать турель!";
                 else
-                    return "Crazy developer.";
+                    return "A brilliant inventor using his technology in battle. Tap on the unit during the battle to create a turret!";
+
+            case "Shieldman":
+                // Если язык русский
+                if (language == "ru")
+                    return "Воинственный Спартанец, не знающий страха и поражений.  " +
+                        "Нажмите на него во время битвы, чтобы активировать щит! Он защитит тебя и союзников от любых снарядов!";
+                else
+                    return "A militant Spartan who knows no fear or defeats.  " +
+                        "Tap on the unit during the battle to activate the shield! It will protect you and your allies from any shells!";
 
             default: return "";
         }
@@ -141,7 +151,7 @@ public class GuildUnitInfo : MonoBehaviour
                 else
                     return "Perks:\n" + "- Shell  Block\n" + "- Parry  Stun";
 
-            case "Arhcer":
+            case "Archer":
                 // Если язык русский
                 if (language == "ru")
                     return "Перки:\n" + "- Критическое  Попадание";
@@ -176,10 +186,10 @@ public class GuildUnitInfo : MonoBehaviour
             case "Paladin":
                 // Если язык русский
                 if (language == "ru")
-                    return "Перки:\n" + "- Отражение  Снаряда\n" + "- Парирование  Атаки\n" + "- Поглощение  Урона\n" + "- Лечение";
+                    return "Перки:\n" + "- Отражение  Снаряда\n" + "- Парирование  Атаки\n" + "- Поглощение  Урона\n" + "- Лечение\n" + "- Оглушение";
                 // Если язык английский
                 else
-                    return "Perks:\n" + "- Shell  Block\n" + "- Parry  Stun\n" + "- Damage  Reduce\n" + "- Heal";
+                    return "Perks:\n" + "- Shell  Block\n" + "- Parry  Stun\n" + "- Damage  Reduce\n" + "- Heal\n" + "- Stun";
 
             case "Elf Maiden":
                 // Если язык русский
@@ -228,6 +238,14 @@ public class GuildUnitInfo : MonoBehaviour
                 // Если язык английский
                 else
                     return "Perks:\n" + "- Shell  Block\n" + "- Parry  Stun";
+
+            case "Shieldman":
+                // Если язык русский
+                if (language == "ru")
+                    return "Перки:\n" + "- Отражение  Снаряда\n" + "- Парирование  Атаки\n" + "- Глубокий порез\n" + "Поглощение Урона";
+                // Если язык английский
+                else
+                    return "Perks:\n" + "- Shell  Block\n" + "- Parry  Stun\n" + "- Deep Cut\n" + "- Damage Reduce";
 
             default: return "";
         }

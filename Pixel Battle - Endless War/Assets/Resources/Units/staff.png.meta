@@ -115,7 +115,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 1024
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: 4
     textureCompression: 1
@@ -134,10 +134,10 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 229
-        height: 204
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -153,12 +153,12 @@ TextureImporter:
       name: staff_1
       rect:
         serializedVersion: 2
-        x: 230
+        x: 17
         y: 0
-        width: 229
-        height: 204
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -174,12 +174,12 @@ TextureImporter:
       name: staff_2
       rect:
         serializedVersion: 2
-        x: 460
+        x: 34
         y: 0
-        width: 229
-        height: 204
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -195,12 +195,12 @@ TextureImporter:
       name: staff_3
       rect:
         serializedVersion: 2
-        x: 690
+        x: 51
         y: 0
-        width: 229
-        height: 204
-      alignment: 4
-      pivot: {x: 0, y: 0.5}
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

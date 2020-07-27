@@ -3,14 +3,23 @@ using UnityEngine.UI;
 
 public class DefaultGameController : MonoBehaviour
 {
+    //public Text TXT_FPS, LOWEST_FPS;
+    //private float fps, lowest_fps = 100;
+
     #region Public Fields
     public static DefaultGameController default_controller;
-    public GameObject[] spawn_buttons;
-    public Transform[] lane; // Координаты точек спавна
     public Sprite[] units_avatars; // Спрайты юнитов для "слотов"
+    public GameObject[]
+        destroyers,
+        spawn_buttons;
+
+    public Transform[]
+        enemies_lane, // Координаты точек спавна противника
+        lane; // Координаты точек спавна
 
     [Space]
     public DefaultManaButton mana_button; // Кнопка апгрейда маныи
+    public Camera cam;
     public Animator 
         camera_anim,
         damage_indicator,
@@ -29,6 +38,8 @@ public class DefaultGameController : MonoBehaviour
     public AudioClip
         victory_sfx,
         defeat_sfx;
+
+    public bool isArenaOn;
     #endregion
 
     #region Get/Set Fields
@@ -44,10 +55,11 @@ public class DefaultGameController : MonoBehaviour
     private DefaultUnitButton unit_button;
     private AudioManager audio_manager;
     private AudioSource audio_s;
+    private CameraShake cam_shake;
 
     private float
         unit_cost, // Стоимость юнита в мане
-        mana_regen_speed = 10.95f,
+        mana_regen_speed = 1.95f,
         mana_regen_bonus;
 
     private int enemy_health = 100; // Здоровье вражеской базы
@@ -68,7 +80,33 @@ public class DefaultGameController : MonoBehaviour
     private void Start()
     {
         audio_manager = AudioManager.instance;
+        cam_shake = CameraShake.instance;
+
+        // Для нахождения левого и правого краёв экрана
+        Vector2 viewPos;
+        viewPos = cam.ViewportToWorldPoint(new Vector2(1, 0));
+        destroyers[1].transform.position = new Vector2(viewPos.x + 1, 0);
+
+        // Меняем координаты точек спавна врагов
+        for (int i = 0; i < 3; i++)
+        {
+            enemies_lane[i].position = new Vector2(viewPos.x + 0.7f, enemies_lane[i].position.y);
+        }
+
+        viewPos = cam.ViewportToWorldPoint(new Vector2(0, 0));
+        destroyers[0].transform.position = new Vector2(viewPos.x - 1, 0);
+
+         // Меняем координаты точек спавна врагов
+        for (int i = 0; i < 3; i++)
+        {
+            lane[i].position = new Vector2(viewPos.x - 0.7f, lane[i].position.y);
+        }
     }
+
+    /*fps = 1f / Time.unscaledDeltaTime;
+       if (fps < lowest_fps && Time.timeSinceLevelLoad > 10) lowest_fps = fps;
+       TXT_FPS.text = "FPS  " + (int)fps;
+       LOWEST_FPS.text = "Min. FPS  " + (int)lowest_fps;*/
 
     private void Update()
     {
@@ -88,7 +126,7 @@ public class DefaultGameController : MonoBehaviour
         // Если игра не закончена
         if (!isGameFinished)
         {
-            camera_anim.SetTrigger("shake"); // Запускаем дёрганье камеры
+            cam_shake.Shake(); // Запускаем дёрганье камеры
 
             // Если наносим урон союзной базе
             if (isAllyBase)
@@ -102,6 +140,14 @@ public class DefaultGameController : MonoBehaviour
                     if (audio_manager.IsOn()) audio_s.PlayOneShot(defeat_sfx);
                     AllyHealth = 0;
                     isGameFinished = true;
+
+                    if (isArenaOn)
+                    {
+                        ArenaManager.instance.StopAllCoroutines();
+                        ArenaManager.instance.enabled = false;
+                    }
+
+                    GetComponent<ClassicGenerator>().StopAllCoroutines();
                     GetComponent<DefaultRewardSystem>().CalculateReward(false, CurrentRoundTime); // Считаем награду
                 }
 
@@ -113,21 +159,27 @@ public class DefaultGameController : MonoBehaviour
             // Если наносим урон вражеской базе
             else
             {
-                // Если вражеская база жива, наносим урон
-                if (enemy_health > 0) enemy_health -= damage;
-
-                // Если вражеская база убита, выигрываем
-                if (enemy_health <= 0)
-                {
-                    if (audio_manager.IsOn()) audio_s.PlayOneShot(victory_sfx);
-                    enemy_health = 0;
-                    isGameFinished = true;
-                    GetComponent<DefaultRewardSystem>().CalculateReward(true, CurrentRoundTime); // Считаем награду
-                }
-
                 damage_indicator.SetTrigger("ally"); // Индикатор урон по краям карты
-                txt_enemy_hp.text = enemy_health.ToString(); // Меняем текст хп
-                enemy_slider.value = enemy_health; // Меняем значение слайдера с хп
+
+                // Если карта не Арена
+                if (!isArenaOn)
+                {
+                    // Если вражеская база жива, наносим урон
+                    if (enemy_health > 0) enemy_health -= damage;
+
+                    // Если вражеская база убита, выигрываем
+                    if (enemy_health <= 0)
+                    {
+                        if (audio_manager.IsOn()) audio_s.PlayOneShot(victory_sfx);
+                        enemy_health = 0;
+                        isGameFinished = true;
+                        GetComponent<ClassicGenerator>().StopAllCoroutines();
+                        GetComponent<DefaultRewardSystem>().CalculateReward(true, CurrentRoundTime); // Считаем награду
+                    }
+
+                    txt_enemy_hp.text = enemy_health.ToString(); // Меняем текст хп
+                    enemy_slider.value = enemy_health; // Меняем значение слайдера с хп
+                }
             }
         }
 
@@ -162,7 +214,7 @@ public class DefaultGameController : MonoBehaviour
         CurrentMana -= unit_cost; // Отнимаем ману за создание юнита
         unit_button.PlayAnim(); // Анимируем увеличение кнопки выбранного юнита
         mana_button.AnimateText(unit_cost); // Запускаем анимацию текста затраченной маны
-        spawn_manager.SpawnUnit(lane[lane_id - 1].position);
+        spawn_manager.SpawnUnit(lane[lane_id - 1].position, lane_id);
 
         GlobalStats.AddToStats("Units Summoned");
 
@@ -197,5 +249,11 @@ public class DefaultGameController : MonoBehaviour
 
         // Если текущей маны меньше чем нужно для создания юнита, выключаем кнопки спавна
         if (CurrentMana < unit_cost) SpawnButtonsCondition(false);
+    }
+
+    // ТОЛЬКО ДЛЯ КОНСОЛИ
+    public void AddMana()
+    {
+        CurrentMana += 100;
     }
 }

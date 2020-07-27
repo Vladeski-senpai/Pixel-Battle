@@ -15,22 +15,25 @@ public class UnitFightManager : MonoBehaviour
 
     public UnitManager attacking_unit { get; set; } // Вражеский юнит, который нас атакует
 
-    public float isBleeding { get; set; } // Истекает ли кровью (>0 - да)
-    public float isPoisoned { get; set; } // Отравлен ли (>0 - да)
+    public float IsBleeding { get; set; } // Истекает ли кровью (>0 - да)
+    public float IsPoisoned { get; set; } // Отравлен ли (>0 - да)
     public bool attackCD { get; set; } // В кулдауне ли атака
-    public bool isStunned { get; set; } // Застанен ли юнит
-    public bool isDead { get; set; } // Мёртв ли юнит
+    public bool IsStunned { get; set; } // Застанен ли юнит
+    public bool IsDead { get; set; } // Мёртв ли юнит
 
     private UnitManager unit_manager;
 
-    private float 
+    private float
+        ftg_srt_bonus, // Бонус к сопротивлению урона от боевого духа (формат: 50% = 0.5)
         ms_slow, // Замедление к скорости передвижения
-        f_ms_slow, // Финальное замедление скорости передвижения (для ограничения)
         ms_bonus, // Ускорение скорости передвижения
+        final_ms, // Финальная скорость передвижения
         as_slow, // Замедление к скорости атаки
-        f_as_slow, // Финальное замедление скорости атаки (для ограничения)
         as_bonus, // Ускорение скорости атаки
+        final_as, // Финальная скорость атаки
         final_damage; // Возвращаемый урон
+
+    private bool paladinHealOn;
 
     private void Awake()
     {
@@ -102,18 +105,32 @@ public class UnitFightManager : MonoBehaviour
                     {
                         final_damage *= PerksValues[i]; // Форма записи: "2 = х2 урон"
 
+                        CameraShake.instance.SmallShake(); // Трясём камеру
+
                         // Создаём частицу критического попадания (красный череп)
                         unit_manager.particles_manager.SpawnParticles("Critical",
                             enemy.transform.position.x, enemy.transform.position.y + 1.2f);
                     }
                     break;
 
-                // Заражаем вирусом "Обычного Зомби"/"Замороженного Зомби"/"Гигантского Паука"
-                case "Zombie Virus":
-                case "Frozen Zombie Virus":
-                case "Spider Virus":
+                // Заражаем вирусом "Зомби" / "Гигантского Паука"
+                case "Virus":
                     if (RandomChance() < PerksChances[i])
+                    {
+                        int virus_type = 0;
+
+                        switch (unit_manager.UnitClass)
+                        {
+                            case "Zombie": virus_type = 1; break;
+                            case "Frozen Zombie": virus_type = 2; break;
+                            case "Desert Zombie": virus_type = 3; break;
+                            case "Dark Zombie": virus_type = 4; break;
+                            case "Giant Spider": virus_type = 5; break;
+                        }
+
+                        enemy.VirusType = virus_type;
                         enemy.AddEffect(PerksNames[i], PerksDurations[i], PerksValues[i]);
+                    }
                     break;
             }
         }
@@ -138,7 +155,7 @@ public class UnitFightManager : MonoBehaviour
                 case "Parry Stun":
                     if (!isShell)
                     {
-                        if (RandomChance() < PerksChances[i])
+                        if (RandomChance() < PerksChances[i] && !IsStunned)
                         {
                             attacking_unit.AddEffect("Stunned", PerksDurations[i]); // Добавляем эффект "оглушения" атакующему нас
                             final_damage = 0; // Возращаем 0 урона, т.к. анулировали его
@@ -158,6 +175,9 @@ public class UnitFightManager : MonoBehaviour
                 // Поглощаем часть урона
                 case "Damage Reduce":
                     final_damage -= final_damage * PerksValues[i];
+                    PerksValues[i] += ftg_srt_bonus; // Бонус к сопротивлению
+                    if (PerksValues[i] > 0.8f) PerksValues[i] = 0.8f; // Больше 80% нельзя
+                    unit_manager.Damage += (unit_manager.Damage * ftg_srt_bonus); // Бонус к урону от перка
                     break;
 
                 // Поглощаем часть урона снаряда
@@ -179,6 +199,43 @@ public class UnitFightManager : MonoBehaviour
                             unit_manager.particles_manager.SpawnParticles("Shell Block",
                                 transform.position.x + Random.Range(-0.15f, 0.2f), transform.position.y + Random.Range(-0.1f, 0.5f));
                         }
+                    }
+                    break;
+
+                // Телепортируемся на рандомную линию
+                case "TP Out":
+                    if (RandomChance() < PerksChances[i])
+                    {
+                        // EFFECT
+                        // SOUND EFFECT
+                        // Случайная линия
+                        float posY = 0;
+                        switch (Random.Range(0, 3))
+                        {
+                            case 0: posY = 1.6f; break; // Первая линия (верхняя)
+                            case 1: posY = -0.35f; break; // Вторая линия (средняя)
+                            case 2: posY = -2.45f; break; // Третья линия (нижняя)
+                        }
+
+                        transform.position = new Vector2(Random.Range(transform.position.x + 1f, transform.position.x + 4f), posY);
+                    }
+                    break;
+
+                // Лечение паладина
+                case "Paladin Heal":
+                    if (!paladinHealOn)
+                    {
+                        paladinHealOn = true;
+                        transform.GetChild(0).GetChild(1).GetComponent<Animator>().SetTrigger("activate");
+                        StartCoroutine(EffectsTimer("Paladin Heal", PerksDurations[i], PerksValues[i]));
+                    }
+                    break;
+
+                // Бонус к поглощению урона и урону
+                case "Fighting Spirit":
+                    if (ftg_srt_bonus == 0)
+                    {
+                        ftg_srt_bonus = PerksValues[i];
                     }
                     break;
             }
@@ -216,13 +273,13 @@ public class UnitFightManager : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
 
-        if (!isDead)
+        if (!IsDead)
         {
             switch (code)
             {
                 // Выключаем эффект "оглушения"
                 case "Stunned":
-                    isStunned = false; // Указываем что юнит не "оглушён"
+                    IsStunned = false; // Указываем что юнит не "оглушён"
                     unit_manager.animator.SetBool("stunned", false); // Отключаем анимацию "оглушения"
                     unit_manager.stun_particles.SetActive(false); // Выключаем частицы стана
                     break;
@@ -230,9 +287,9 @@ public class UnitFightManager : MonoBehaviour
                 // Наносим урон от "кровотечения"
                 case "Bleeding":
                     // Если "кровотечение" включено
-                    if (isBleeding > 0)
+                    if (IsBleeding > 0)
                     {
-                        isBleeding--; // Отнимаем один тик
+                        IsBleeding--; // Отнимаем один тик
                         unit_manager.Health -= value; // Наносим урон
                         StartCoroutine(EffectsTimer(code, time, value)); // Запускаем новый тик
 
@@ -240,15 +297,15 @@ public class UnitFightManager : MonoBehaviour
                         unit_manager.particles_manager.SpawnParticles("Blood",
                             transform.position.x + Random.Range(-0.2f, 0.2f), transform.position.y + Random.Range(-0.1f, 0.22f));
                     }
-                    else isBleeding = 0;
+                    else IsBleeding = 0;
                     break;
 
                 // Наносим урон от "отравления"
                 case "Poisoned":
                     // Если "отравление" включено
-                    if (isPoisoned > 0)
+                    if (IsPoisoned > 0)
                     {
-                        isPoisoned--; // Отнимаем один тик
+                        IsPoisoned--; // Отнимаем один тик
                         unit_manager.Health -= value; // Наносим урон
                         StartCoroutine(EffectsTimer(code, time, value)); // Запускаем новый тик
 
@@ -256,7 +313,7 @@ public class UnitFightManager : MonoBehaviour
                         unit_manager.particles_manager.SpawnParticles("Poison",
                             transform.position.x + Random.Range(-0.23f, 0.21f), transform.position.y + Random.Range(-0.1f, 0.27f));
                     }
-                    else isPoisoned = 0;
+                    else IsPoisoned = 0;
                     break;
 
                 // Замедление скорости атаки/передвижения
@@ -264,22 +321,16 @@ public class UnitFightManager : MonoBehaviour
                     unit_manager.ChangeColor(""); // Возвращаем стандартный цвет
                     break;
 
-                // Отключаем вирус "Обычного Зомби"
-                case "Zombie Virus":
-                    unit_manager.IsInfectedByZombie = false;
+                // Отключаем вирус "Зомби" / "Гигантского паука"
+                case "Virus":
+                    unit_manager.VirusType = 0;
                     unit_manager.ChangeColor(""); // Возвращаем стандартный цвет
                     break;
 
-                // Отключаем вирус "Замороженного Зомби"
-                case "Frozen Zombie Virus":
-                    unit_manager.IsInfectedByFrozenZombie = false;
-                    unit_manager.ChangeColor(""); // Возвращаем стандартный цвет
-                    break;
-
-                // Отключаем вирус "Гигантского Паука"
-                case "Spider Virus":
-                    unit_manager.IsInfectedBySpider = false;
-                    unit_manager.ChangeColor(""); // Возвращаем стандартный цвет
+                // Лечение юнита Паладина
+                case "Paladin Heal":
+                    unit_manager.Health += unit_manager.MaxHealth * value;
+                    StartCoroutine(EffectsTimer(code, time, value));
                     break;
             }
         }
@@ -343,16 +394,19 @@ public class UnitFightManager : MonoBehaviour
 
     private void CalcSpeed()
     {
+        final_ms = unit_manager.BasicMS * (1 + ms_bonus - ms_slow);
+        final_as = unit_manager.BasicAS * (1 - as_bonus + as_slow);
+
         // Ограничиваем максимальное замедление скорости передвижения
-        if (ms_slow > 0.9f) f_ms_slow = 0.9f;
-        else f_ms_slow = ms_slow;
+        if (final_ms < 0.1f)
+            final_ms = 0.1f;
 
-        // Ограничиваем максимальное замедление скорости атаки
-        if (as_slow > 0.9f) f_as_slow = 0.9f;
-        else f_as_slow = as_slow;
+        // Ограничиваем максимальную скорость атаки
+        if (final_as < 0.2f)
+            final_as = 0.2f;
 
-        unit_manager.MoveSpeed = unit_manager.BasicMS * (1 + ms_bonus - f_ms_slow);
-        unit_manager.AttackSpeed = unit_manager.BasicAS * (1 - as_bonus + f_as_slow);
+        unit_manager.MoveSpeed = final_ms;
+        unit_manager.AttackSpeed = final_as;
     }
 
     // Возвращаем случайное число (шанс срабатывания перков) RandomChance() < *ваш_шанс*
