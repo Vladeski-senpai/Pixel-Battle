@@ -15,6 +15,14 @@
 /[Uu]ser[Ss]ettings/
 
 /[Aa]ssets/Animation/*
+/[Aa]ssets/Resources/*
+/[Aa]ssets/SFX/*
+/[Aa]ssets/_Scenes/*
+/[Aa]ssets/_Scriptable Objects/*
+/[Aa]ssets/GooglePlayGames/*
+/[Aa]ssets/ExternalDependencyManager/*
+/[Aa]ssets/Plugins/*
+/[Aa]ssets/Prefabs/*
 
 # MemoryCaptures can get excessive in size.
 # They also could contain extremely sensitive data
